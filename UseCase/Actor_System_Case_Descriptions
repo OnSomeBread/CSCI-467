@@ -1,0 +1,55 @@
+ACTOR DESCRIPTION
+Database Administrator: A specific employee tasked with maintaining and managing sales associate employee data; not required but can view finalized orders.
+Use Cases = Edit Sales Associate data, Read-only finalized quotes
+
+Order Confirmation Department: The final group of company liaisons that manage the order, offer discounts, review the order, forward the finalized quotes, and calculate the final price prior to shipment.
+Use Cases = Send sectioned finalized quotes and add final discount to external processing system. Confirm data, in select cases: edit data. They can send emails.
+
+Management: The overseers of finalized quotes, which they can reject or endorse. They manage line items, deal with prices and discounts, and are a direct line of email communication with customers.
+Use Cases = A lot of access, primary editors of project data. They can edit and manage most aspects of order, customer, discount admin. They can send email.
+
+Sales Associate: They're the boots on the ground, dealing with customers, order and customer data, insertion of line item information, construct quotes. They finalized quotes that are later sent to Management for confirmation.
+Use Cases = Adds customer data, adds line items, adds order data to database. Sends out finalized quotes.
+
+SYSTEM DESCRIPTION
+Project Database: Contains overarching information on stock, employees, customers, orders, discounts, prices, and quotes.
+
+External Processing System: Sanctioned finalized quote is turned into a purchase order, and will return date and commission rate for the sales associate responsible.
+
+Email System: Allows for communication from company (Management and Order Confirmation Department) to customers.
+
+CASE DESCRIPTION
+1.) Sales Associate Data
+ 
+Actor: Database Administrator; Project Database
+Description: Database Admin edits, oversees employee data (including commission)
+Data: Name, User ID, Password, Accumulated Commission, Home Address
+Stimulus: Insertion of associate data
+Response: Alteration of associate data
+Comments: Admin can edit, add, delete associate data.
+
+2.) Finalized Quotes
+Actors: Management, Order Confirmation Department, Database Administrator (view-only); Project Database.
+Description: Management oversees, confirms or rejects quotes, considers and applies discounts. Order Confirmation Department formalizes confirmation.
+Data: Line items, customer ID, secret notes (between sales associate and management).
+Stimulus: Confirmation, formalization of discount and order data.
+Response: For Management, passed up as finalized quote, editing/overseeing and passing along to Confirmation Department. For Confirmation Department, formalization and sending out order.
+Comments: Passed up to Management for review and confirmation before being passed to Order Confirmation Department to be formalized.
+
+3.) Quote
+Actors: Sales Associate; Project Database
+Description: Sales associate interacts with customer, and their line items. Works to make a rough draft quote that will be later reviewed along multiple stages.
+Data: Line items, customer ID, secret notes (between sales associate and management).
+Stimulus: Creation, and passed up.
+Response: It will be created, data will be stored, and as it is passed up it will become a Finalized Quote.
+Comments: Preliminary, rough draft quote that will be created by a Sales Associate. The demarcation between Quote and Finalized Quote is what stage of overseeing, alteration they are (When Management gets it, it is a Finalized Quote).
+
+4.) Customer Data
+Actors: Sales Associate, Management, Order Confirmation Department; Project Database
+Description: Sales Associate creates (if new customer), alters customer data. Management and O.C. Department will have view-only access for email communication purposes (can only view contact info).
+Data: Name, customer ID, address, contact information.
+Stimulus: Creation, alteration (by Sales Associate); O.C. Department and Management wanting to send email
+Response: If creation, new data added to database. If alteration, new data added to existing customer. When sending email from O.C. Department and Management, email will be sent to customer.
+Comments: Order Confirmation Department and Management only have access to contact info to send automated emails. Sales Associate has direct access and interaction.
+
+
