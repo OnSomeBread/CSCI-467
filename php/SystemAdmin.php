@@ -1,7 +1,7 @@
 <?php
 
 echo "<head>"
-      "</head>";
+     "</head>";
 echo "<body>";
 try {
   
