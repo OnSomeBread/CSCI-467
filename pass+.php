@@ -1,8 +1,8 @@
 <?php
 //z-id
-$username = "";
+$username = "z1927111";
 //yyyyMmmdd
-$password = "";
+$password = "2002Sep16";
 //z-id
-$dbname   = ""; 
+$dbname   = "z1927111"; 
 ?>
