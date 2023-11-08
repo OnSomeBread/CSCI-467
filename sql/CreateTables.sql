@@ -7,7 +7,7 @@ CREATE TABLE Quotes (
   QuoteID int AUTO_INCREMENT PRIMARY KEY,
   Date_ int(15) NOT NULL,
   SecretNote char(255),
-  Status int(1) NOT NULL,
+  Status int(1) NOT NULL
 );
 
 CREATE TABLE CustomerData (
