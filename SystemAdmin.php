@@ -2,8 +2,8 @@
 
 include("pass+.php");
 
-echo "<head>"
-     "</head>";
+echo "<head>
+     </head>";
 echo "<body>";
 try {
      $dsn = "mysql:host=courses;dbname={$dbname}";
