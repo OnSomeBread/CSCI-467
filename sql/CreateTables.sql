@@ -10,7 +10,7 @@ CREATE TABLE CustomerData (
   Country char(40) NOT NULL,
   Address char(60) NOT NULL,
   QuoteID int(15) NOT NULL,
-  FOREIGN KEY (QuoteID) REFRENCES Quotes(QuoteID)
+  FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
 );
 
 CREATE TABLE LineItems (
@@ -21,7 +21,7 @@ CREATE TABLE LineItems (
   Discount double(5),
   TotalPrice double(7) NOT NULL,
   QuoteID int(15) NOT NULL,
-  FOREIGN KEY (QuoteID) REFRENCES Quotes(QuoteID)
+  FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
 );
 
 CREATE TABLE Quotes (
@@ -40,5 +40,5 @@ CREATE TABLE SalesAssociate (
   Password char(40) NOT NULL,
   commission double(6) NOT NULL,
   QuoteID int(15) NOT NULL,
-  FOREIGN KEY (QuoteID) REFRENCES Quotes(QuoteID)
+  FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
 );
