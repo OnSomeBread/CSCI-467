@@ -3,6 +3,13 @@ DROP TABLE IF EXISTS LineItems;
 DROP TABLE IF EXISTS Quotes;
 DROP TABLE IF EXISTS SalesAssociate;
 
+CREATE TABLE Quotes (
+  QuoteID int AUTO_INCREMENT PRIMARY KEY,
+  Date int(15) NOT NULL,
+  SecretNote char(256),
+  Status int(1) NOT NULL,
+);
+
 CREATE TABLE CustomerData (
   UserID int AUTO_INCREMENT PRIMARY KEY,
   Name char(40) NOT NULL,
@@ -22,13 +29,6 @@ CREATE TABLE LineItems (
   TotalPrice double(7) NOT NULL,
   QuoteID int(15) NOT NULL,
   FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
-);
-
-CREATE TABLE Quotes (
-  QuoteID int AUTO_INCREMENT PRIMARY KEY,
-  Date int(15) NOT NULL,
-  SecretNote char(256),
-  Status int(1) NOT NULL,
 );
 
 CREATE TABLE SalesAssociate (
