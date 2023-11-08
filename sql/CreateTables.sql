@@ -24,9 +24,9 @@ CREATE TABLE LineItems (
   LineID int AUTO_INCREMENT PRIMARY KEY,
   ItemName char(40) NOT NULL,
   Quantity int(3) NOT NULL,
-  UnitPrice double(5) NOT NULL,
-  Discount double(5),
-  TotalPrice double(7) NOT NULL,
+  UnitPrice float(5) NOT NULL,
+  Discount float(5),
+  TotalPrice float(7) NOT NULL,
   QuoteID int(15) NOT NULL,
   FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
 );
@@ -38,7 +38,7 @@ CREATE TABLE SalesAssociate (
   Address char(40) NOT NULL,
   Username char(40) UNIQUE NOT NULL,
   Password char(40) NOT NULL,
-  commission double(6) NOT NULL,
+  commission float(6) NOT NULL,
   QuoteID int(15) NOT NULL,
   FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
 );
