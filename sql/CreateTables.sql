@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS Quotes;
 DROP TABLE IF EXISTS SalesAssociate;
 
 CREATE TABLE CustomerData {
-  UserID int(15) UNIQUE PRIMARY KEY NOT NULL,
+  UserID int AUTO_INCREMENT PRIMARY KEY,
   Name char(40) NOT NULL,
   Email char(40) NOT NULL,
   Country char(40) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE CustomerData {
 };
 
 CREATE TABLE LineItems {
-  LineID int(15) UNIQUE PRIMARY KEY NOT NULL,
+  LineID int AUTO_INCREMENT PRIMARY KEY,
   ItemName char(40) NOT NULL,
   Quantity int(3) NOT NULL,
   UnitPrice double(5) NOT NULL,
@@ -25,14 +25,14 @@ CREATE TABLE LineItems {
 }
 
 CREATE TABLE Quotes {
-  QuoteID int(15) UNIQUE PRIMARY KEY NOT NULL,
+  QuoteID int AUTO_INCREMENT PRIMARY KEY,
   Date int(15) NOT NULL,
   SecretNote char(256),
   Status int(1) NOT NULL,
 }
 
 CREATE TABLE SalesAssociate {
-  AssocID int(15) UNIQUE PRIMARY KEY NOT NULL,
+  AssocID int AUTO_INCREMENT PRIMARY KEY,
   Name char(40) NOT NULL,
   Email char(40) NOT NULL,
   Address char(40) NOT NULL,
