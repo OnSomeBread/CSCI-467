@@ -11,6 +11,8 @@
 <?php
 include("pass+.php");
 
+//header("Location: http://www.example.com/example-url", true, 301);
+
 echo "<head>
      </head>";
 echo "<body>";
