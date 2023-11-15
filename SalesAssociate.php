@@ -21,21 +21,14 @@ echo "<body>";
 $query = $pdo->query("SELECT * FROM Quotes;");
 echo '<table>';
 	while($row = $query->fetch(PDO::FETCH_ASSOC)){
-                echo "<tr id=$i onclick='highlight(this)'>";
-                
-                // gets every col form result
-                $j = 0;
+                echo "<tr>";
                 foreach($row as $col){
-                    $h = $i . $j . "d";
-                    echo "<td id=$h>";
+                    echo "<td>";
                     echo $col;
                     echo "</td>";
-                    $j = $j + 1;
                 }
                 echo "</tr>";
-                $i = $i + 1;
             }
-
         echo '</table>';
 echo "</body>";
 ?>
