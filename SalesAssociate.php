@@ -11,6 +11,7 @@
 <?php
 include("pass+.php");
 
+//example redirect function
 //header("Location: http://www.example.com/example-url", true, 301);
 
 echo "<head>
