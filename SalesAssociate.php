@@ -3,7 +3,7 @@
 	<input type="text" name="password" value="">
 	<input type="text" name="" value="">
 </form>
-
+<?php
 include("pass+.php");
 
 echo "<head>
