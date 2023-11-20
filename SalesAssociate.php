@@ -18,6 +18,7 @@ echo "<head>
      </head>";
 echo "<body>";
 
+$query = $pdo->query("INSERT INTO QUOTES(1,'something',0);");
 $query = $pdo->query("SELECT * FROM Quotes;");
 echo '<table>';
 	while($row = $query->fetch(PDO::FETCH_ASSOC)){
