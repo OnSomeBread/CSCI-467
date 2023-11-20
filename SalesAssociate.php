@@ -49,7 +49,7 @@ if (!isset($_SESSION['username'])) {
         $query = "SELECT * FROM SalesAssociate WHERE Username='$username' AND Password='$password'";
         $result = $pdo->query($query);
 
-        if ($result->num_rowCount() > 0) {
+        if ($result->num_rows > 0) {
             // If credentials are valid, store the username in the session
             $_SESSION['username'] = $username;
         } else {
