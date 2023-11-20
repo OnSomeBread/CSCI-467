@@ -39,7 +39,7 @@ echo "<head>
      </head>";
 echo "<body>";
 
-$loginError = "";
+$login = "";
 if (!isset($_SESSION['username'])) {
     // If not logged in, check if the login form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,9 +53,10 @@ if (!isset($_SESSION['username'])) {
         if ($result->rowCount() > 0) {
             // If credentials are valid, store the username in the session
             $_SESSION['username'] = $username;
+	    $login = "correct";
         } else {
-            $loginError = "Invalid username or password";
-		echo $loginError;
+            $login = "Invalid username or password";
+		echo $login;
         }
     }
 } else {
@@ -66,7 +67,7 @@ if (!isset($_SESSION['username'])) {
     }
 }
 
-if($loginError == "" && isset($_SESSION['username'])) {
+if($login == "" || $login == "Invalid username or password") {
 	echo '<form action="" method="POST">
 			<br><br>
 			<h3>Please enter a username</h3>
@@ -81,7 +82,7 @@ if($loginError == "" && isset($_SESSION['username'])) {
 	echo "</body>";
 }
 
-if($loginError == ""){
+if($login == "correct"){
 	$query = $pdo->query("SELECT * FROM Quotes;");
 	echo '<table>';
 		while($row = $query->fetch(PDO::FETCH_ASSOC)){
