@@ -57,18 +57,7 @@ if (!isset($_SESSION['username'])) {
 		echo $loginError;
         }
     }
-} else {
-    // If the user is logged in, display the query interface
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Process and execute the query
-        $queryText = $_POST['query'];
-        $result = $pdo->query($conn, $queryText);
-        $rows = $result->fetch_all(MYSQLI_ASSOC);
-    }
-}
-
-
-//if(!isset($_GET['login'])) {
+    else {
 	echo '<form action="" method="POST">
 		<br><br>
 		<h3>Please enter a username</h3>
@@ -80,7 +69,16 @@ if (!isset($_SESSION['username'])) {
 		<br>
 		<button id="login" type="submit" name="login" value="login">Login</button
 	</form>';
-//}
+    }
+} else {
+    // If the user is logged in, display the query interface
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Process and execute the query
+        $queryText = $_POST['query'];
+        $result = $pdo->query($conn, $queryText);
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
 
 $query = $pdo->query("SELECT * FROM Quotes;");
 echo '<table>';
