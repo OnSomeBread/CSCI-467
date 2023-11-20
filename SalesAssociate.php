@@ -49,7 +49,7 @@ if (!isset($_SESSION['username'])) {
         $query = "SELECT * FROM SalesAssociate WHERE Username='$username' AND Password='$password'";
         $result = $pdo->query($query);
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rowCount() > 0) {
             // If credentials are valid, store the username in the session
             $_SESSION['username'] = $username;
         } else {
@@ -63,7 +63,7 @@ if (!isset($_SESSION['username'])) {
         // Process and execute the query
         $queryText = $_POST['query'];
         $result = $pdo->query($conn, $queryText);
-        $rows = $result->fetch_all(MYSQLI_ASSOC);
+        $rows = $result->fetch_all(PDO::FETCH_ASSOC);
     }
 }
 
