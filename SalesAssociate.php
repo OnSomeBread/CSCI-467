@@ -76,8 +76,6 @@ if($login == "" || $login == "Invalid username or password") {
 			<h3>Please enter a password</h3>
 			<input type="text" name="password">
 			<br>
-			<input type="text" name="" value="">
-			<br>
 			<button id="login" type="submit" name="login" value="login">Login</button
 		</form>';
 	echo "</body>";
@@ -87,7 +85,25 @@ if($login == "correct"){
 	if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && isset($_GET['Address']) && isset($_GET['QuoteID'])){
 	    $n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (" . $_GET['Name'] . ", " . $_GET['Email'] . ", " . $_GET['Country'] . ", " . $_GET['Address'] . ", " . $_GET['QuoteID'] . ");");
 	}
-        echo "";
+        echo '<form action="" method="GET">
+			<br><br>
+			<h3>Please enter a name</h3>
+			<input type="text" name="Name">
+			<h3>Please enter a email</h3>
+			<input type="text" name="Email">
+			<br>
+   			<h3>Please enter a country</h3>
+                        <input type="text" name="Country">
+			<br>
+   			<h3>Please enter a address</h3>
+                        <input type="text" name="Address">
+			<br>
+   			<h3>Please enter a quoteid</h3>
+                        <input type="text" name="QuoteID">
+			<br>
+			<button id="login" type="submit" name="login" value="login">Login</button
+		</form>';
+	echo "</body>";
  
 	$query = $pdo->query("SELECT * FROM Quotes;");
 	echo '<table>';
