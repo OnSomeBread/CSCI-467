@@ -47,7 +47,7 @@ if (!isset($_SESSION['username'])) {
 
         // Check username and password against the database
         $query = "SELECT * FROM SalesAssociate WHERE Username='$username' AND Password='$password'";
-        $result = executeQuery($conn, $query);
+        $result = $pdo->query($query);
 
         if ($result->num_rows > 0) {
             // If credentials are valid, store the username in the session
