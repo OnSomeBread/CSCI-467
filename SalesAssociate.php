@@ -66,6 +66,21 @@ if (!isset($_SESSION['username'])) {
     }
 }
 
+if($loginError == "" && isset($_SESSION['username'])) {
+	echo '<form action="" method="POST">
+			<br><br>
+			<h3>Please enter a username</h3>
+			<input type="text" name="username">
+			<h3>Please enter a password</h3>
+			<input type="text" name="password">
+			<br>
+			<input type="text" name="" value="">
+			<br>
+			<button id="login" type="submit" name="login" value="login">Login</button
+		</form>';
+	echo "</body>";
+}
+
 if($loginError == ""){
 	$query = $pdo->query("SELECT * FROM Quotes;");
 	echo '<table>';
@@ -80,18 +95,4 @@ if($loginError == ""){
 	        }
 	echo '</table>';
 }
-
-echo '<form action="" method="POST">
-		<br><br>
-		<h3>Please enter a username</h3>
-		<input type="text" name="username">
-		<h3>Please enter a password</h3>
-		<input type="text" name="password">
-		<br>
-		<input type="text" name="" value="">
-		<br>
-		<button id="login" type="submit" name="login" value="login">Login</button
-	</form>';
-
-echo "</body>";
 ?>
