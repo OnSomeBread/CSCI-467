@@ -41,6 +41,7 @@ echo "<body>";
 
 if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && isset($_GET['Address']) && isset($_GET['QuoteID'])){
     print_r($_GET);
+	echo $_GET['Name'];
 	// TODO
 //$n = $pdo->query("INSERT INTO CustomerData (UserID, Name, Email, Country, Address, QuoteID) VALUES (1," . trim(strip_tags($_GET['Name'])) . ", " . $_GET['Email'] . ", " . $_GET['Country'] . ", " . $_GET['Address'] . ", " . $_GET['QuoteID'] . ");");
 }
