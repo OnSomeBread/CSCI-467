@@ -39,6 +39,7 @@ echo "<head>
      </head>";
 echo "<body>";
 
+$loginError = "";
 if (!isset($_SESSION['username'])) {
     // If not logged in, check if the login form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -61,7 +62,12 @@ if (!isset($_SESSION['username'])) {
     // If the user is logged in, display the query interface
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Process and execute the query
-        $query = $pdo->query("SELECT * FROM Quotes;");
+        
+    }
+}
+
+if($loginError == ""){
+	$query = $pdo->query("SELECT * FROM Quotes;");
 	echo '<table>';
 		while($row = $query->fetch(PDO::FETCH_ASSOC)){
 	                echo "<tr>";
@@ -73,7 +79,6 @@ if (!isset($_SESSION['username'])) {
 	                echo "</tr>";
 	        }
 	echo '</table>';
-    }
 }
 
 echo '<form action="" method="POST">
