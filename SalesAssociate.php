@@ -59,13 +59,14 @@ if (!isset($_SESSION['username'])) {
 		echo $login;
         }
     }
-} else {
-    // If the user is logged in, display the query interface
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Process and execute the query
-        
-    }
-}
+} 
+//else {
+//    // If the user is logged in, display the query interface
+//    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//        // Process and execute the query
+//        
+//    }
+//}
 
 if($login == "" || $login == "Invalid username or password") {
 	echo '<form action="" method="POST">
