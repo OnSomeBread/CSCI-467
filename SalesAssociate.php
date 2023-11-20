@@ -39,7 +39,35 @@ echo "<head>
      </head>";
 echo "<body>";
 
-//if(!isset($_GET['login'])) {
+if (!isset($_SESSION['username'])) {
+    // If not logged in, check if the login form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Check username and password against the database
+        $query = "SELECT * FROM SalesAssociate WHERE Username='$username' AND Password='$password'";
+        $result = executeQuery($conn, $query);
+
+        if ($result->num_rows > 0) {
+            // If credentials are valid, store the username in the session
+            $_SESSION['username'] = $username;
+        } else {
+            $loginError = "Invalid username or password";
+        }
+    }
+} else {
+    // If the user is logged in, display the query interface
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Process and execute the query
+        $queryText = $_POST['query'];
+        $result = $pdo->query($conn, $queryText);
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
+
+
+if(!isset($_GET['login'])) {
 	echo '<form action="" method="GET">
 		<br><br>
 		<h3>Please enter a username</h3>
@@ -51,7 +79,7 @@ echo "<body>";
 		<br>
 		<button id="login" type="submit" name="login" value="login">Login</button
 	</form>';
-//}
+}
 
 $query = $pdo->query("SELECT * FROM Quotes;");
 echo '<table>';
