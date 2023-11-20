@@ -61,9 +61,18 @@ if (!isset($_SESSION['username'])) {
     // If the user is logged in, display the query interface
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Process and execute the query
-        $queryText = $_POST['query'];
-        $result = $pdo->query($conn, $queryText);
-        $rows = $result->fetch_all(PDO::FETCH_ASSOC);
+        $query = $pdo->query("SELECT * FROM Quotes;");
+	echo '<table>';
+		while($row = $query->fetch(PDO::FETCH_ASSOC)){
+	                echo "<tr>";
+	                foreach($row as $col){
+	                    echo "<td>";
+	                    echo $col;
+	                    echo "</td>";
+	                }
+	                echo "</tr>";
+	        }
+	echo '</table>';
     }
 }
 
@@ -79,17 +88,5 @@ echo '<form action="" method="POST">
 		<button id="login" type="submit" name="login" value="login">Login</button
 	</form>';
 
-$query = $pdo->query("SELECT * FROM Quotes;");
-echo '<table>';
-	while($row = $query->fetch(PDO::FETCH_ASSOC)){
-                echo "<tr>";
-                foreach($row as $col){
-                    echo "<td>";
-                    echo $col;
-                    echo "</td>";
-                }
-                echo "</tr>";
-            }
-        echo '</table>';
 echo "</body>";
 ?>
