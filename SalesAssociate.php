@@ -83,6 +83,9 @@ if($login == "" || $login == "Invalid username or password") {
 }
 
 if($login == "correct"){
+	//if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && isset($_GET['Address']) && isset($_GET['QuoteID'])){
+	//    $n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES ("{$_GET['Name']}", "{$_GET['Email']}", "{$_GET['Country']}", "{$_GET['Address']}", "{$_GET['QuoteID']}");");
+	//}
 	$query = $pdo->query("SELECT * FROM Quotes;");
 	echo '<table>';
 		while($row = $query->fetch(PDO::FETCH_ASSOC)){
