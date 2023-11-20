@@ -39,7 +39,7 @@ echo "<head>
      </head>";
 echo "<body>";
 
-if(!isset($_GET['login'])) {
+//if(!isset($_GET['login'])) {
 	echo '<form action="" method="GET">
 		<br><br>
 		<h3>Please enter a username</h3>
@@ -51,7 +51,7 @@ if(!isset($_GET['login'])) {
 		<br>
 		<button id="login" type="submit" name="login" value="login">Login</button
 	</form>';
-}
+//}
 
 $query = $pdo->query("SELECT * FROM Quotes;");
 echo '<table>';
