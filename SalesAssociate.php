@@ -68,19 +68,19 @@ if (!isset($_SESSION['username'])) {
 }
 
 
-if(!isset($_GET['login'])) {
-	echo '<form action="" method="GET">
+//if(!isset($_GET['login'])) {
+	echo '<form action="" method="POST">
 		<br><br>
 		<h3>Please enter a username</h3>
-		<input type="text" name="username" value="">
+		<input type="text" name="username" value="username">
 		<h3>Please enter a password</h3>
-		<input type="text" name="password" value="">
+		<input type="text" name="password" value="password">
 		<br>
 		<input type="text" name="" value="">
 		<br>
 		<button id="login" type="submit" name="login" value="login">Login</button
 	</form>';
-}
+//}
 
 $query = $pdo->query("SELECT * FROM Quotes;");
 echo '<table>';
