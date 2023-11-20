@@ -54,6 +54,7 @@ if (!isset($_SESSION['username'])) {
             $_SESSION['username'] = $username;
         } else {
             $loginError = "Invalid username or password";
+		echo $loginError;
         }
     }
 } else {
