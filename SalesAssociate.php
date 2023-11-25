@@ -43,12 +43,16 @@ if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && 
     print_r($_GET);
 	echo $_GET['Name'];
 	// TODO
-$QuoteID = (int)$_POST['QuoteID'];
-$n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (" . $_GET['Name'] . ", " . $_GET['Email'] . ", " . $_GET['Country'] . ", " . $_GET['Address'] . ",$QuoteID);");
+$Name = $_GET['Name'];
+$Email = $_GET['Email'];
+$Country = $_GET['Country'];
+$Address = $_GET['Address'];
+$QuoteID = (int)$_GET['QuoteID'];
+$n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES ($Name, $Email, $Country, $Address, $QuoteID);");
 }
 $login = "";
 if (!isset($_SESSION['username'])) {
-    // If not logged in, check if the login form is submitted
+	// If not logged in, check if the login form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $password = $_POST['password'];
