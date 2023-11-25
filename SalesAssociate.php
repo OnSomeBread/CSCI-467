@@ -48,7 +48,7 @@ $Email = $_GET['Email'];
 $Country = $_GET['Country'];
 $Address = $_GET['Address'];
 $QuoteID = (int)$_GET['QuoteID'];
-$n = $pdo->query(INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES ($Name, $Email, $Country, $Address, $QuoteID););
+$n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES ($Name, $Email, $Country, $Address, $QuoteID);");
 }
 $login = "";
 if (!isset($_SESSION['username'])) {
