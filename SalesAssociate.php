@@ -43,7 +43,7 @@ if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && 
     print_r($_GET);
 	echo $_GET['Name'];
 	// TODO
-$QuoteID = (int)$_GET['QuoteID']
+$QuoteID = (int)$_GET['QuoteID'];
 $n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (" . $_GET['Name'] . ", " . $_GET['Email'] . ", " . $_GET['Country'] . ", " . $_GET['Address'] . ",$QuoteID);");
 }
 $login = "";
