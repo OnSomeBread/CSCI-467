@@ -71,19 +71,19 @@ echo "<body>";
 		
 	echo '<form action="" method="GET">
 			<br><br>
-			<h3>Please enter a name</h3>
+			<h3>Please Enter a Name</h3>
 			<input type="text" name="Name">
 
-			<h3>Please enter a email</h3>
+			<h3>Please Enter an Email</h3>
 			<input type="text" name="Email">
 
-			<h3>Please enter a address</h3>
+			<h3>Please Enter an Address</h3>
 			<input type="text" name="Address">
 
-			<h3>Please enter a username</h3>
+			<h3>Please Enter a Username</h3>
 			<input type="text" name="Username">
 
-			<h3>Please enter a password</h3>
+			<h3>Please enter a Password</h3>
 			<input type="text" name="Password">
 
 			<br>
