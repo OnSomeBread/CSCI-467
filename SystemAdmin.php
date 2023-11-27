@@ -11,9 +11,9 @@ echo "<head>
 	if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Address']) && isset($_GET['Username']) && isset($_GET['Password'])){
 		$Name = $_GET['Name'];
     		$Email = $_GET['Email'];
-    		$Country = $_GET['Address'];
-    		$Address = $_GET['Username'];
-    		$QuoteID = $_GET['Password'];
+    		$Address = $_GET['Address'];
+    		$Username = $_GET['Username'];
+    		$Password = $_GET['Password'];
 
 		$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission, QuoteID) VALUES (:Name, :Email, :Address, :Username, :Password, 40.00, 1)");
 
