@@ -19,8 +19,9 @@ echo "<body>";
     		$Username = $_GET['Username'];
     		$Password = $_GET['Password'];
 
-		$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission, QuoteID) VALUES (:Name, :Email, :Address, :Username, :Password, 40.00, 1)");
-
+		if(!empty($_GET['Username'])) {
+			$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission, QuoteID) VALUES (:Name, :Email, :Address, :Username, :Password, 40.00, 1)");
+		
 		$g->bindParam(':Name', $Name);
     		$g->bindParam(':Email', $Email);
     		$g->bindParam(':Address', $Address);
@@ -32,6 +33,7 @@ echo "<body>";
 		}
 		catch (Exception $e) {
 			echo 'failure';
+		}
 		}
 	}
 
