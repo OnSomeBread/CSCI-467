@@ -30,7 +30,7 @@ echo "<body>";
 		try {
     			$g->execute();
 		}
-		catch (Exception e) {
+		catch (Exception $e) {
 			echo 'failure'
 		}
 	}
