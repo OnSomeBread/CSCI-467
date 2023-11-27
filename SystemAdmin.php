@@ -32,7 +32,7 @@ echo "<body>";
 
 	if (isset($_GET['UserID'])){
 		$DelUser = $_GET['UserID'];
-		$b = $pdo->prepare("DELETE FROM SalesAssociate WHERE UserID = :DelUser;");
+		$b = $pdo->prepare("DELETE FROM SalesAssociate WHERE AssocID = :DelUser;");
 		$b->bindParam(':DelUser', $DelUser);
 		$b->execute();
 	}
