@@ -168,30 +168,5 @@ if($login == "correct"){
 	catch(PDOexception $e){
 		echo "Connection to database failed: ".$e->getMessage();
 	}
-
-	function draw_table($rows)
-     {
-       if(empty($rows)) {echo "<p>No results found.</p>";}
-       	else
-       	{
-         	echo "<table border=1 cellspacing=1>";
-         	echo "<tr>";
-         	foreach($rows[0] as $key => $item)
-         	{
-           		echo "<th>$key</th>";
-         	}
-         	echo "</tr>";
-         	foreach($rows as $row)
-         	{	
-           		echo "<tr>";
-           		foreach($row as $key => $item)
-           		{
-             		echo "<td>$item</td>";
-           		}
-           		echo "</tr>";
-         	}
-         	echo "</table>";
-       	}
-     }
 }
 ?>
