@@ -122,7 +122,7 @@ if($login == "correct"){
    			<h3>Please enter a quoteid</h3>
                         <input type="text" name="QuoteID">
 			<br>
-			<button id="login" type="submit" name="login" value="login">Login</button
+			<button id="Enter" type="submit" name="Enter">Enter</button>
 		</form>';
 	echo "</body>";
  
