@@ -26,7 +26,6 @@ echo "<body>";
     		$g->bindParam(':Username', $Username);
     		$g->bindParam(':Password', $Password);
 
-		//Executing the prepared statement
     		$g->execute();
 	}
 		
