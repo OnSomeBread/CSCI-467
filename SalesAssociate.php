@@ -126,17 +126,7 @@ if($login == "correct"){
 		</form>';
  
 	// $query = $pdo->query("SELECT * FROM Quotes;");
-	// echo '<table>';
-	// 	while($row = $query->fetch(PDO::FETCH_ASSOC)){
-	//                 echo "<tr>";
-	//                 foreach($row as $col){
-	//                     echo "<td>";
-	//                     echo $col;
-	//                     echo "</td>";
-	//                 }
-	//                 echo "</tr>";
-	//         }
-	// echo '</table>';
+        // create_table($query);
 
 	echo "<title>Sales Associate</title><br><h1>Customer</h1>";
 
