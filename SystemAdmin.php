@@ -30,12 +30,12 @@ echo "<body>";
     		$g->execute();
 	}
 
-	if (isset($_GET['UserID'])){
+	/*if (isset($_GET['UserID'])){
 		$DelUser = $_GET['UserID'];
 		$b = $pdo->prepare("DELETE FROM SalesAssociate WHERE AssocID = :DelUser;");
 		$b->bindParam(':DelUser', $DelUser);
 		$b->execute();
-	}
+	}*/
 		
 	echo '<form action="" method="GET">
 			<br><br>
