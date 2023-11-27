@@ -7,6 +7,7 @@ echo "<head>
 		System Administration
 	</title>
 </head>";
+echo "<body>";
 	echo 'hi';
 	if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Address']) && isset($_GET['Username']) && isset($_GET['Password'])){
 		echo 'hi';
@@ -27,10 +28,8 @@ echo "<head>
 		// Executing the prepared statement
     		$g->execute();
 	}
-
-echo "<body>";
 		
-	echo '<form action="" method="POST">
+	echo '<form action="" method="GET">
 			<br><br>
 			<h3>Please enter a name</h3>
 			<input type="text" name="name">
