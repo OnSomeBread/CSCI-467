@@ -27,7 +27,12 @@ echo "<body>";
     		$g->bindParam(':Username', $Username);
     		$g->bindParam(':Password', $Password);
 
-    		$g->execute();
+		try {
+    			$g->execute();
+		}
+		catch (Exception e) {
+			echo 'failure'
+		}
 	}
 
 	if (isset($_GET['delete']) && isset($_GET['UserID'])){
