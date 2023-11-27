@@ -39,4 +39,17 @@ function draw_table($rows)
          	echo "</table>";
        	}
      }
+ function create_table($rows) {
+     echo '<table>';
+		while($row = $query->fetch(PDO::FETCH_ASSOC)){
+	                echo "<tr>";
+	                foreach($row as $col){
+	                    echo "<td>";
+	                    echo $col;
+	                    echo "</td>";
+	                }
+	                echo "</tr>";
+	        }
+	echo '</table>';
+ }
 ?>
