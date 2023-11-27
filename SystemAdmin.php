@@ -89,6 +89,9 @@ echo "<body>";
 			<br>
 			<button id="create" type="submit" name="create" value="create">Create</button
 		</form>';
+
+	$query = $pdo->query("SELECT * FROM SalesAssociate;");
+        create_table($query);
 	
 	echo "</body>";
 
