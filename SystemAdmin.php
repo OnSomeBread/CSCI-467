@@ -19,9 +19,9 @@ echo "<head>
 
 		$g->bindParam(':Name', $Name);
     		$g->bindParam(':Email', $Email);
-    		$g->bindParam(':Country', $Country);
     		$g->bindParam(':Address', $Address);
-    		$g->bindParam(':QuoteID', $QuoteID);
+    		$g->bindParam(':Username', $Username);
+    		$g->bindParam(':Password', $Password);
 
 		// Executing the prepared statement
     		$g->execute();
