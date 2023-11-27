@@ -32,19 +32,19 @@ echo "<body>";
 	echo '<form action="" method="GET">
 			<br><br>
 			<h3>Please enter a name</h3>
-			<input type="text" name="name">
+			<input type="text" name="Name">
 
 			<h3>Please enter a email</h3>
-			<input type="text" name="email">
+			<input type="text" name="Email">
 
 			<h3>Please enter a address</h3>
-			<input type="text" name="address">
+			<input type="text" name="Address">
 
 			<h3>Please enter a username</h3>
-			<input type="text" name="username">
+			<input type="text" name="Username">
 
 			<h3>Please enter a password</h3>
-			<input type="text" name="password">
+			<input type="text" name="Password">
 
 			<br>
 			<button id="create" type="submit" name="create" value="create">Create</button
