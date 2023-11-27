@@ -39,19 +39,28 @@ echo "<head>
      </head>";
 echo "<body>";
 
-if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && isset($_GET['Address']) && isset($_GET['QuoteID'])){
-    print_r($_GET);
-	echo $_GET['Name'];
-	// TODO
-$Name = $_GET['Name'];
-$Email = $_GET['Email'];
-$Country = $_GET['Country'];
-$Address = $_GET['Address'];
-$QuoteID = (int)$_GET['QuoteID'];
-//$n = $pdo->query("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES ($Name, $Email, $Country, $Address, $QuoteID);");
-$n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES ($Name, $Email, $Country, $Address, $QuoteID);");
-$n->execute([$Name, $Email, $Country, $Address, $QuoteID]);
-}
+//ERROR HERE
+// TODO: Validate and sanitize input data
+    $Name = $_GET['Name'];
+    $Email = $_GET['Email'];
+    $Country = $_GET['Country'];
+    $Address = $_GET['Address'];
+    $QuoteID = (int)$_GET['QuoteID'];
+
+    // Using prepared statement with placeholders
+    $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
+    
+    // Binding parameters
+    $n->bindParam(':Name', $Name);
+    $n->bindParam(':Email', $Email);
+    $n->bindParam(':Country', $Country);
+    $n->bindParam(':Address', $Address);
+    $n->bindParam(':QuoteID', $QuoteID);
+    
+    // Executing the prepared statement
+    $n->execute();
+//ERROR HERE
+
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
