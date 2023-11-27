@@ -42,13 +42,16 @@ function draw_table($rows)
  function create_table($query) {
      echo '<table>';
 		while($row = $query->fetch(PDO::FETCH_ASSOC)){
-	                echo "<tr>";
-	                foreach($row as $col){
-	                    echo "<td>";
-	                    echo $col;
-	                    echo "</td>";
-	                }
-	                echo "</tr>";
+	                 echo '<tr>';
+    			 echo '<td>' . $row['AssocID'] . '</td>';
+    			 echo '<td>' . $row['Name'] . '</td>';
+    			 echo '<td>' . $row['Email'] . '</td>';
+    			 echo '<td>' . $row['Address'] . '</td>';
+    			 echo '<td>' . $row['Username'] . '</td>';
+    			 echo '<td>' . $row['Password'] . '</td>';
+    			 echo '<td>' . $row['commission'] . '</td>';
+    			 echo '<td>' . $row['QuoteID'] . '</td>';
+    			 echo '</tr>';
 	        }
 	echo '</table>';
  }
