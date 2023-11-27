@@ -8,9 +8,9 @@ echo "<head>
 	</title>
 </head>";
 echo "<body>";
-	echo 'hi';
+
+	//new sales associate creation
 	if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Address']) && isset($_GET['Username']) && isset($_GET['Password'])){
-		echo 'hi';
 		$Name = $_GET['Name'];
     		$Email = $_GET['Email'];
     		$Address = $_GET['Address'];
