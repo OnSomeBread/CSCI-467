@@ -102,7 +102,6 @@ if($login == "" || $login == "Invalid username or password") {
 			<br>
 			<button id="login" type="submit" name="login" value="login">Login</button
 		</form>';
-	echo "</body>";
 }
 
 if($login == "correct"){
@@ -124,7 +123,6 @@ if($login == "correct"){
 			<br>
 			<button id="Enter" type="submit" name="Enter">Enter</button>
 		</form>';
-	echo "</body>";
  
 	// $query = $pdo->query("SELECT * FROM Quotes;");
 	// echo '<table>';
