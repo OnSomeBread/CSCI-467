@@ -39,6 +39,7 @@ echo "<head>
      </head>";
 echo "<body>";
 
+
 //ERROR HERE
 if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && isset($_GET['Address']) && isset($_GET['QuoteID'])){
 // TODO: Validate and sanitize input data
