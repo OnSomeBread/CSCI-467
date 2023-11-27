@@ -29,6 +29,13 @@ echo "<body>";
 
     		$g->execute();
 	}
+
+	if (isset($_GET['UserID'])){
+		$DelUser = $_GET['UserID'];
+		$b = $pdo->prepare("DELETE FROM SalesAssociate WHERE UserID = :DelUser;");
+		$b->bindParam(':DelUser', $DelUser);
+		$b->execute();
+	}
 		
 	echo '<form action="" method="GET">
 			<br><br>
@@ -50,6 +57,14 @@ echo "<body>";
 			<br>
 			<button id="create" type="submit" name="create" value="create">Create</button
 		</form>';
+
+		echo '<form action="" method="GET">
+  			<br><br>
+			<h3>Please Enter UserID to Delete</h3>
+			<input type="text" name="UserID">
+   			<br>
+			<button id="delete" type="submit" name="delete" value="delete">Delete</button
+  		</form>';
 
 	$query = $pdo->query("SELECT * FROM SalesAssociate;");
         create_table($query);
