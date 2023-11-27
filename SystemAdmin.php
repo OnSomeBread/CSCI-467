@@ -8,6 +8,7 @@ echo "<head>
 	</title>
 </head>";
 echo "<body>";
+	echo '<h1>Create a new Sales Associate user</h1>';
 
 	//new sales associate creation
 	if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Address']) && isset($_GET['Username']) && isset($_GET['Password'])){
