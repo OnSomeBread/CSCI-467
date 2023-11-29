@@ -4,8 +4,6 @@ include("pass+.php");
 echo "<head></head>";
 echo "<body>";
 
-echo "hello";
-
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["quote_id"])) {
