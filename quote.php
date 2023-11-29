@@ -14,8 +14,6 @@
 			$discount = $_POST['discount'];
 
 
-			$pdo = new PDO("mysql:host=courses;dbname=z1873203","z1873203","2001Jul31");
-
 
 
 			$rs = $pdo->prepare("INSERT INTO lineItem (email, itemName, itemQuantity, note, customer_name, id) VALUES (:email, :itemName, :itemQuantity, :note, :customer_name, :id)");
