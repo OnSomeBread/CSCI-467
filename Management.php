@@ -10,7 +10,7 @@ echo "<body>";
 
 
      $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 1;");
-     update_table_with_button($query);
+     update_table_with_buttons($query);
 
 
 echo "</body>";
