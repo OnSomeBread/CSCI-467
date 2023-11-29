@@ -73,16 +73,16 @@ echo "<body>";
 			<button id="delete" type="submit" name="delete">Delete</button
   		</form>';
 
-	$query = $pdo->query("SELECT * FROM SalesAssociate;");
-        create_table($query);
-
-		echo '<form action="" method="GET">
+		echo '<br><form action="" method="GET">
   			<br><br>
 			<h3>Please Enter UserID to Edit</h3>
 			<input type="text" name="UserID">
    			<br>
 			<button id="edit" type="submit" name="edit">Edit</button
   		</form>';
+
+	$query = $pdo->query("SELECT * FROM SalesAssociate;");
+        create_table($query);
 	
 	echo "</body>";
 
