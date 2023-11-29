@@ -12,5 +12,26 @@ echo "<body>";
      $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
      create_table($query);
 
+global $pdo;
+
+    echo "<table border='1'>";
+    echo "<tr><th>QuoteID</th><th>Date</th><th>SecretNote</th><th>Status</th><th>Action</th></tr>";
+
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row['QuoteID'] . "</td>";
+        echo "<td>" . $row['Date_'] . "</td>";
+        echo "<td>" . $row['SecretNote'] . "</td>";
+        echo "<td>" . $row['Status'] . "</td>";
+        echo "<td><form method='post' action='update_status.php'>";
+        echo "<input type='hidden' name='quote_id' value='" . $row['QuoteID'] . "'>";
+        echo "<input type='submit' value='Update Status'>";
+        echo "</form></td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+}
+
 echo "</body>";
 ?>
