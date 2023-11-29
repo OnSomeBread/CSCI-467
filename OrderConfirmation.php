@@ -4,6 +4,14 @@ include("pass+.php");
 echo "<head></head>";
 echo "<body>";
 
+$countQuery = $pdo->query("SELECT COUNT(*) as count FROM Quotes WHERE Status = 2");
+$countResult = $countQuery->fetch(PDO::FETCH_ASSOC);
+$itemCount = $countResult['count'];
+
+if ($itemCount < 0){
+    echo "Nothing here";;
+}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["quote_id"])) {
