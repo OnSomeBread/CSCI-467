@@ -31,7 +31,6 @@ global $pdo;
     }
 
     echo "</table>";
-}
 
 echo "</body>";
 ?>
