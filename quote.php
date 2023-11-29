@@ -7,29 +7,30 @@
 	try{
 		if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			
-			$id = $_POST['id'];
-			$email = $_POST['email'];
-			$itemName = $_POST['itemName'];
-			$itemQuantity = $_POST['itemQuantity'];
-			$note = $_POST['note'];
-			$discount = $_POST['discount'];
+			$ItemName = $_POST['ItemName'];
+			$Quantity = $_POST['Quantity'];
+			$UnitPrice = $_POST['UnitPrice'];
+			$Discount = $_POST['Discount'];
+			$TotalPrice = $_POST['TotalPrice'];
+			$QuoteID = $_POST['QuoteID'];
 
 
 
 
-			$rs = $pdo->prepare("INSERT INTO lineItem (email, itemName, itemQuantity, note, id) VALUES (:email, :itemName, :itemQuantity, :note, :id)");
+			$rs = $pdo->prepare("INSERT INTO lineItems (ItemName, Quantity, UnitPrice, Discount, TotalPrice, QuoteID) VALUES (:ItemName, :Quantity, :UnitPrice, :Discount, :TotalPrice, :QuoteID)");
 
-			$rs->bindParam(':email', $email);
-			$rs->bindParam(':itemName', $itemName);
-			$rs->bindParam(':itemQuantity', $itemQuantity);
-			$rs->bindParam(':note', $note);
-			$rs->bindParam(':id', $id);
+			$rs->bindParam(':ItemName', $ItemName);
+			$rs->bindParam(':Quantity', $Quantity);
+			$rs->bindParam(':UnitPrice', $UnitPrice);
+			$rs->bindParam(':Discount', $Discount);
+			$rs->bindParam(':TotalPrice', $TotalPrice);
+			$rs->bindParam(':QuoteID', $QuoteID);
 			$rs->execute();
 
 
-			$query = "SELECT itemQuantity FROM lineItem WHERE id = $id";
+			$query = "SELECT itemQuantity FROM lineItem WHERE ItemName = $ItemName";
 			$result = $pdo->prepare($query);
-			$result->bindParam(':id', $id);
+			$result->bindParam(':ItemName', $ItemName);
 			$result->execute();
 
 			if($result->rowCount() > 0){
