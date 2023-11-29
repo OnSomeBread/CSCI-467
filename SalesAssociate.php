@@ -49,6 +49,10 @@ if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && 
     $Address = $_GET['Address'];
     $QuoteID = (int)$_GET['QuoteID'];
 
+	//Name -> Name
+	//City -> country
+	//street -> Address
+	//Contact -> Email
     // Using prepared statement with placeholders
     $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
     
