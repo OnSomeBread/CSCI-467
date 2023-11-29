@@ -41,14 +41,14 @@ function draw_table($rows)
      }
  function create_table($query) {
     echo '<table>';
-    while($row = $query->fetch(PDO::FETCH_ASSOC)){
-	                echo "<tr>";
-	                foreach($row as $col){
-	                    echo "<td>";
-	                    echo $col;
+    	while($row = $query->fetch(PDO::FETCH_ASSOC)){
+		echo "<tr>";
+	        	foreach($row as $col){
+	                    echo "<style="padding: 10px; border: 1px solid #ddd;">";
+	                    	echo $col;
 	                    echo "</td>";
 	                }
-	                echo "</tr>";
+	        echo "</tr>";
 	        }
 	echo '</table>';
  }
