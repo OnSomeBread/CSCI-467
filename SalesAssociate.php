@@ -39,11 +39,11 @@ echo "<head>
      </head>";
 echo "<body>";
 
-$username='student';
-$password='student';
+$usernamex='student';
+$passwordx='student';
 
 $dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
-$pdo = new PDO($dsn,$username,$password);
+$pdo = new PDO($dsn,$usernamex,$passwordx);
 
 $rs = $pdo->query("SELECT name FROM customers;");
 $rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
