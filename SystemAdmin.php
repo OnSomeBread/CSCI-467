@@ -81,7 +81,7 @@ echo "<body>";
 			<h3>Please Enter UserID to Edit</h3>
 			<input type="text" name="UserID">
    			<br>
-			<button id="edit" type="submit" name="edit">edit</button
+			<button id="edit" type="submit" name="edit">Edit</button
   		</form>';
 	
 	echo "</body>";
