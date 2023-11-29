@@ -4,10 +4,6 @@ include("pass+.php");
 echo "<head></head>";
 echo "<body>";
 
-$countQuery = $pdo->query("SELECT COUNT(*) as count FROM Quotes WHERE Status = 2");
-$countResult = $countQuery->fetch(PDO::FETCH_ASSOC);
-$itemCount = $countResult['count'];
-
 if ($itemCount < 0){
     echo "Nothing here";;
 }
@@ -26,6 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
 update_table_with_buttons($query);
+
+if($query->rowCount() == 0){
+    echo "There is nothing ready for confirmation, at the moment.";
+}
 
 echo "</body>";
 
