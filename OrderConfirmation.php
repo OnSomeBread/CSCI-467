@@ -16,13 +16,19 @@ echo "<body>";
             $updateQuery->execute();
         }
     }
+
+if (isset($_GET['delete']) && isset($_GET['UserID'])){
+		$DelUser = $_GET['UserID'];
+		$b = $pdo->prepare("DELETE FROM SalesAssociate WHERE AssocID = :DelUser;");
+		$b->bindParam(':DelUser', $DelUser);
+		$b->execute();
+	}
     
     $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
     create_table($query);
 
-    echo "<form method='post' action='".$_SERVER["PHP_SELF"]."'>";
-    echo "<table border='1'>";
-    echo "<tr><th>QuoteID</th><th>Date</th><th>SecretNote</th><th>Status</th><th>Action</th></tr>";
+
+echo "<td><button type='submit' name='quote_id' value='" . $row['QuoteID'] . "'>Update Status</button></td>";
     
     echo "</body>";
 
