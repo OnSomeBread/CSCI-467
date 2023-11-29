@@ -17,13 +17,12 @@
 
 
 
-			$rs = $pdo->prepare("INSERT INTO lineItem (email, itemName, itemQuantity, note, customer_name, id) VALUES (:email, :itemName, :itemQuantity, :note, :customer_name, :id)");
+			$rs = $pdo->prepare("INSERT INTO lineItem (email, itemName, itemQuantity, note, id) VALUES (:email, :itemName, :itemQuantity, :note, :id)");
 
 			$rs->bindParam(':email', $email);
 			$rs->bindParam(':itemName', $itemName);
 			$rs->bindParam(':itemQuantity', $itemQuantity);
 			$rs->bindParam(':note', $note);
-			$rs->bindParam(':customer_name', $customer);
 			$rs->bindParam(':id', $id);
 			$rs->execute();
 
