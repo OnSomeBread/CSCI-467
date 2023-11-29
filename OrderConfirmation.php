@@ -9,6 +9,8 @@ echo "<head>
      </head>";
 echo "<body>";
 
+     echo "hello";
+
      $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
      create_table($query);
 
