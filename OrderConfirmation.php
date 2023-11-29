@@ -27,9 +27,7 @@ function create_table_with_buttons($query)
 {
     global $pdo;
 
-    echo "<form method='post' action='".$_SERVER["PHP_SELF"]."'>";
-    echo "<table border='1'>";
-    echo "<tr><th>QuoteID</th><th>Date</th><th>SecretNote</th><th>Status</th><th>Action</th></tr>";
+   echo "<form method='post' action='".$_SERVER["PHP_SELF"]."'>";
 
    echo '<table>';
     	while($row = $query->fetch(PDO::FETCH_ASSOC)){
