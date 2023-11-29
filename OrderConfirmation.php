@@ -1,8 +1,9 @@
 <?php
 include("pass+.php");
-include("styles.css");
 
-echo "<head></head>";
+echo "<head>
+<link rel="stylesheet" href="styles.css">
+</head>";
 echo "<body>";
 
 // Check if the form is submitted
