@@ -2,15 +2,15 @@
   include("pass+.php");
 
   echo "LINE ITEMS";
-  $query = "SELECT * FROM LineItems;";
-  create_table($query);
+  $result = $pdo->query("SELECT * FROM LineItems;");
+  create_table($result);
   echo "QUOTES";
-  $query = "SELECT * FROM Quotes;";
-  create_table($query);
+  $result = $pdo->query("SELECT * FROM Quotes;");
+  create_table($result);
   echo "SALESASSOCIATE";
-  $query = "SELECT * FROM SalesAssociate;";
-  create_table($query);
+  $result = $pdo->query("SELECT * FROM SalesAssociate;");
+  create_table($result);
   echo "CUSTOMERDATA";
-  $query = "SELECT * FROM CustomerData;";
-  create_table($query);
+  $result = $pdo->query("SELECT * FROM CustomerData;");
+  create_table($result);
 ?>
