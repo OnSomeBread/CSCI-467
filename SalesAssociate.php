@@ -39,15 +39,34 @@ echo "<head>
      </head>";
 echo "<body>";
 
+$username='student';
+$password='student';
 
-//ERROR HERE
-if (isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Country']) && isset($_GET['Address']) && isset($_GET['QuoteID'])){
-// TODO: Validate and sanitize input data
-    $Name = $_GET['Name'];
-    $Email = $_GET['Email'];
-    $Country = $_GET['Country'];
-    $Address = $_GET['Address'];
-    $QuoteID = (int)$_GET['QuoteID'];
+$dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
+$pdo = new PDO($dsn,$username,$password);
+
+$rs = $pdo->query("SELECT name FROM customers;");
+$rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
+//draw_table($rows);
+
+echo "\n";
+
+echo "<form method=POST action=>";
+echo '<label for="customer">Select Customer:</label>'; 
+echo '<select id="customer" name="Name">';
+echo '<option value="">select one</option>';
+foreach ($rows as $option){
+	echo "<option value=\"$option\">$option</option>";			  }
+echo '<input type="submit" value="New Quote">';
+echo '</select><br/>';	
+echo "</form>";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
+	$Name = $_POST['name'];
+    	$Email = $_POST['contact'];
+    	$Country = $_POST['city'];
+    	$Address = $_POST['street'];
+    	$QuoteID = '1';
 
 	//Name -> Name
 	//City -> country
