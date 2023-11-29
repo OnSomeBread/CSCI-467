@@ -44,9 +44,9 @@ function draw_table($rows)
     	while($row = $query->fetch(PDO::FETCH_ASSOC)){
 		echo "<tr>";
 	        	foreach($row as $col){
-	                    echo "<style="padding: 10px; border: 1px solid #ddd;">";
+	                    echo '<td style="padding: 10px; border: 1px solid #ddd;">';
 	                    	echo $col;
-	                    echo "</td>";
+	                    echo '</td>';
 	                }
 	        echo "</tr>";
 	        }
