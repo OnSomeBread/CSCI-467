@@ -40,18 +40,15 @@ function draw_table($rows)
        	}
      }
  function create_table($query) {
-     echo '<table>';
-		while($row = $query->fetch(PDO::FETCH_ASSOC)){
-	                 echo '<tr>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['AssocID'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['Name'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['Email'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['Address'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['Username'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['Password'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['commission'] . '</td>';
-    echo '<td style="padding: 10px; border: 1px solid #ddd;">' . $row['QuoteID'] . '</td>';
-    echo '</tr>';
+    echo '<table>';
+    while($row = $query->fetch(PDO::FETCH_ASSOC)){
+	                echo "<tr>";
+	                foreach($row as $col){
+	                    echo "<td>";
+	                    echo $col;
+	                    echo "</td>";
+	                }
+	                echo "</tr>";
 	        }
 	echo '</table>';
  }
