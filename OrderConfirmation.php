@@ -36,6 +36,7 @@ function create_table_with_buttons($query)
 	                    echo '</td>';
 	                }
 	        echo "</tr>";
+		echo "<td><button type='submit' name='quote_id' value='" . $row['QuoteID'] . "'>Update Status</button></td>";
 	}
     echo '</table>';
     
