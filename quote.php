@@ -54,7 +54,7 @@
 				echo "No row found with id = $id";
 			}
 
-			
+		}
 			echo "<br>";			
 
 			echo "New quote created. Press button to return:";
@@ -62,7 +62,7 @@
 
 			echo "<br>";
 			echo '<a href="sales_associate.php"><button>Sales Associate</button></a>';
-		}
+		
 	}catch (PDOException $e){
 		echo "Error: " . $e->getMessage();
 	}
