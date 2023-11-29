@@ -8,7 +8,7 @@ echo "<head>
      </head>";
 echo "<body>";
 
-     $query = $pdo->query("SELECT * FROM Quotes WHERE Status == 1;");
+     $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 1;");
      create_table($query);
 
 echo "</body>";
