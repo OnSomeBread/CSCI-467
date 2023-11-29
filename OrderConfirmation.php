@@ -20,7 +20,9 @@ $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
 update_table_with_buttons($query);
 
 if($query->rowCount() == 0){
-    echo "There is nothing ready for confirmation, at the moment.";
+    echo "<div style='text-align: center; font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px;'>";
+    echo "There is nothing ready for confirmation at the moment.";
+    echo "</div>";
 }
 
 echo "</body>";
