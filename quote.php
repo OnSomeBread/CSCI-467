@@ -2,6 +2,7 @@
 </head>
 <body>
 <?php
+	include("pass+.php");
 
 	try{
 		if ($_SERVER["REQUEST_METHOD"] == "POST"){
