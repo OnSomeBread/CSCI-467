@@ -31,17 +31,18 @@ function create_table_with_buttons($query)
     echo "<table border='1'>";
     echo "<tr><th>QuoteID</th><th>Date</th><th>SecretNote</th><th>Status</th><th>Action</th></tr>";
 
-    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-        echo "<tr>";
-        echo "<td>" . $row['QuoteID'] . "</td>";
-        echo "<td>" . $row['Date_'] . "</td>";
-        echo "<td>" . $row['SecretNote'] . "</td>";
-        echo "<td>" . $row['Status'] . "</td>";
-        echo "<td><button type='submit' name='quote_id' value='" . $row['QuoteID'] . "'>Update Status</button></td>";
-        echo "</tr>";
-    }
-
-    echo "</table>";
+   echo '<table>';
+    	while($row = $query->fetch(PDO::FETCH_ASSOC)){
+		echo "<tr>";
+	        	foreach($row as $col){
+	                    echo '<td style="padding: 10px; border: 1px solid #ddd;">';
+	                    	echo $col;
+	                    echo '</td>';
+	                }
+	        echo "</tr>";
+	}
+    echo '</table>';
+    
     echo "</form>";
 }
 ?>
