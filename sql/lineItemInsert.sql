@@ -2,7 +2,7 @@
 INSERT INTO Quotes (Date_, SecretNote, Status) VALUES
   (20230101, 'Confidential Note 1', 1),
   (20230215, 'Secret Note 2', 0),
-  (20230320, 'Top Secret Note 3', 1);
+  (20230320, 'Top Secret Note 3', 1),
   (20230321, 'Top Secret Note 4', 2);
 
 -- Insert data into LineItems table
