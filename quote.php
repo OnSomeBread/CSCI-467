@@ -62,6 +62,9 @@
 			echo "<br>";
 			echo '<a href="sales_associate.php"><button>Sales Associate</button></a>';
 		}
+		else{
+			header("sales_associate_extend.php", true, 301);
+		}
 	}catch (PDOException $e){
 		echo "Error: " . $e->getMessage();
 	}
