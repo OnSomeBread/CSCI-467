@@ -44,7 +44,7 @@ $password='student';
 
 try {
 $dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
-$pdo = new PDO($dsn,$usernamex,$passwordx);
+$pdo = new PDO($dsn,$username,$password);
 
 $rs = $pdo->query("SELECT name FROM customers;");
 $rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
