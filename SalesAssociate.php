@@ -30,7 +30,7 @@ th, td {
 
 <img src="">
 <?php
-//include("pass+.php");
+include("pass+.php");
 
 //example redirect function
 //header("Location: http://www.example.com/example-url", true, 301);
