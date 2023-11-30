@@ -51,7 +51,7 @@ echo "\n";
 
 echo "<form method=POST action=>";
 echo '<label for="customer">Select Customer:</label>'; 
-echo '<select id="customer" name="name">';
+echo '<select id="customer" name="Cname">';
 echo '<option value="">select one</option>';
 foreach ($rows as $option){
 	echo "<option value=\"$option\">$option</option>";			  }
@@ -60,10 +60,15 @@ echo '</select><br/>';
 echo "</form>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
-	$Name = $_POST['name'];
-    	$Email = $_POST['contact'];
-    	$Country = $_POST['city'];
-    	$Address = $_POST['street'];
+	$Name = $_POST["Cname"];
+					  
+	$xs = $pdx->query("SELECT name, street, city, contact FROM customers WHERE Cname = :Cname");
+	$xs->bindParam(':Cname', $Name);
+	$xs->execute();
+	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
+    	$Email = $_POST["contact"];
+    	$Country = $_POST["city"];
+    	$Address = $_POST["street"];
     	$QuoteID = '1';
 
 	//Name -> Name
