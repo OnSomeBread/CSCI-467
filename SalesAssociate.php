@@ -42,6 +42,7 @@ echo "<body>";
 $usernamex='student';
 $passwordx='student';
 
+try {
 $dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
 $pdo = new PDO($dsn,$usernamex,$passwordx);
 
