@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
 					  
 	$xresult = $pdx->query("SELECT street, city, contact FROM customers WHERE name = $Name");
-	$row = $xresult->fetchassoc();
+	$row = $xresult->fetch_assoc();
     	$Email = $row["contact"];
     	$Country = $row["city"];
     	$Address = $row["street"];
