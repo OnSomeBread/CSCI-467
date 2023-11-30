@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	//street -> Address
 	//Contact -> Email
     // Using prepared statement with placeholders
-    $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
+    $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (name, contact, city, street, :QuoteID)");
     
     // Binding parameters
     $n->bindParam(':Name', $Name);
