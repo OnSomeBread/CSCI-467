@@ -61,13 +61,11 @@ echo "</form>";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
 					  
-	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
-	$xs->bindParam(':customer_name', $Name);
-	$xs->execute();
-	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
-    	$Email = $_POST["contact"];
-    	$Country = $_POST["city"];
-    	$Address = $_POST["street"];
+	$xresult = $pdx->query("SELECT street, city, contact FROM customers WHERE name = $Name");
+	$row = $xresult->fetchassoc();
+    	$Email = $row["contact"];
+    	$Country = $row["city"];
+    	$Address = $row["street"];
     	$QuoteID = '1';
 
 	//Name -> Name
