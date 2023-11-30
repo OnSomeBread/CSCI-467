@@ -64,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 					  
 	$rs = $pdo->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
 	$rs->bindParam(':customer_name', $Name);
-	$xs->execute();
-	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
+	$rs->execute();
+	$xresult = $rs->fetch(PDO::FETCH_ASSOC);
     	$Email = $_POST["contact"];
     	$Country = $_POST["city"];
     	$Address = $_POST["street"];
