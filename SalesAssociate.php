@@ -42,7 +42,7 @@ echo "<body>";
 try {
 $pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
-$xs = $pdo->query("SELECT name FROM customers;");
+$xs = $pdx->query("SELECT name FROM customers;");
 $rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 //draw_table($rows);
 
