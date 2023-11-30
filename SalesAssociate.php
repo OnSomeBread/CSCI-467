@@ -148,34 +148,6 @@ if($login == "correct"){
 			<button id="Enter" type="submit" name="Enter">Enter</button>
 		</form>';
  
-	// $query = $pdo->query("SELECT * FROM Quotes;");
-        // create_table($query);
-
-	echo "<title>Sales Associate</title><br><h1>Customer</h1>";
-
-	$username='student';  //change
-	$password='student'; //change
-
-	try{
-		$dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
-		$pdo = new PDO($dsn,$username,$password);
-
-		$rs = $pdo->query("SELECT name FROM customers;");
-		$rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
-		//draw_table($rows);
-
-		echo "\n";
-
-		echo "<form method=POST action=  >";
-		echo '<label for="customer">Select Customer:</label>'; 
-		echo '<select id="customer" name="selected_customer">';
-		foreach ($rows as $option){
-			echo "<option value=\"$option\">$option</option>";			  }
-		echo '<input type="submit" value="Submit">';
-		echo '</select><br/>';	
-		echo "</form>";	
-
-
 	}
 	catch(PDOexception $e){
 		echo "Connection to database failed: ".$e->getMessage();
