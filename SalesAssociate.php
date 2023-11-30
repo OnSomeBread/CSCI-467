@@ -153,5 +153,4 @@ if($login == "correct"){
 	catch(PDOexception $e){
 		echo "Connection to database failed: ".$e->getMessage();
 	}
-}
 ?>
