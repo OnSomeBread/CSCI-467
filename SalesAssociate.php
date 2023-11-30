@@ -95,18 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 //    }
 //}
 
-if($login == "" || $login == "Invalid username or password") {
-	echo '<form action="" method="POST">
-			<br><br>
-			<h3>Please enter a username</h3>
-			<input type="text" name="username">
-			<h3>Please enter a password</h3>
-			<input type="text" name="password">
-			<br>
-			<button id="login" type="submit" name="login" value="login">Login</button
-		</form>';
-}
-
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
@@ -127,7 +115,19 @@ if (!isset($_SESSION['username'])) {
 		echo $login;
         }
     }
-} 
+}
+	
+if($login == "" || $login == "Invalid username or password") {
+	echo '<form action="" method="POST">
+			<br><br>
+			<h3>Please enter a username</h3>
+			<input type="text" name="username">
+			<h3>Please enter a password</h3>
+			<input type="text" name="password">
+			<br>
+			<button id="login" type="submit" name="login" value="login">Login</button
+		</form>';
+}
 
 if($login == "correct"){
         echo '<form action="" method="GET">
