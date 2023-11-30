@@ -62,7 +62,7 @@ echo "</form>";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
 					  
-	$xs = $pdx->query("SELECT name, street, city, contact FROM customers WHERE Cname = :Cname");
+	$xs = $pdx->query("SELECT name, street, city, contact FROM customers WHERE name = :Cname");
 	$xs->bindParam(':Cname', $Name);
 	$xs->execute();
 	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
