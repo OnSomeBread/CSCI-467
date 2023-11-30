@@ -39,8 +39,8 @@ echo "<head>
      </head>";
 echo "<body>";
 
-$usernamex='student';
-$passwordx='student';
+$username='student';
+$password='student';
 
 try {
 $dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
