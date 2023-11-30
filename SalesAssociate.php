@@ -40,9 +40,9 @@ echo "<head>
 echo "<body>";
 
 try {
-$pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
+$pdo = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
-$rs = $pdx->query("SELECT name FROM customers;");
+$rs = $pdo->query("SELECT name FROM customers;");
 $rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 //draw_table($rows);
 
