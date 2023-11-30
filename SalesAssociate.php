@@ -41,9 +41,9 @@ echo "<body>";
 
 try {
 $dsn = "mysql:host=blitz.cs.niu.edu;dbname=csci467";
-$pdo = new PDO($dsn,'student','student');
+$pdx = new PDO($dsn,'student','student');
 
-$rs = $pdo->query("SELECT name FROM customers;");
+$rs = $pdx->query("SELECT name FROM customers;");
 $rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 //draw_table($rows);
 
