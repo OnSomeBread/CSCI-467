@@ -42,8 +42,8 @@ echo "<body>";
 try {
 $pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
-$xs = $pdx->query("SELECT name FROM customers;");
-$rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
+$rs = $pdx->query("SELECT name FROM customers;");
+$rows = $rs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 //draw_table($rows);
 
 echo "\n";
@@ -61,10 +61,10 @@ echo "</form>";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
 					  
-	$xs = $pdo->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
-	$xs->bindParam(':customer_name', $Name);
-	$xs->execute();
-	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
+	$rs = $pdo->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
+	$rs->bindParam(':customer_name', $Name);
+	$rs->execute();
+	$xresult = $rs->fetch(PDO::FETCH_ASSOC);
     	$Email = $_POST["contact"];
     	$Country = $_POST["city"];
     	$Address = $_POST["street"];
