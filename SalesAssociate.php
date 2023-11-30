@@ -83,6 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
     // Executing the prepared statement
     $n->execute();
 }
+} catch(PDOexception $e){
+	echo "Connection to database failed: ".$e->getMessage();
+}
 //ERROR HERE
 //else {
 //    // If the user is logged in, display the query interface
@@ -146,8 +149,4 @@ if($login == "correct"){
 			<button id="Enter" type="submit" name="Enter">Enter</button>
 		</form>';
 }
-	}
-	catch(PDOexception $e){
-		echo "Connection to database failed: ".$e->getMessage();
-	}
 ?>
