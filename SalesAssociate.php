@@ -148,7 +148,7 @@ if($login == "correct"){
 			<br>
 			<button id="Enter" type="submit" name="Enter">Enter</button>
 		</form>';
- 
+}
 	}
 	catch(PDOexception $e){
 		echo "Connection to database failed: ".$e->getMessage();
