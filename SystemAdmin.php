@@ -46,10 +46,21 @@ echo "<body>";
 
 	if (isset($_GET['edit'])){
 		// change update line
-		$b = $pdo->prepare("UPDATE FROM SalesAssociate WHERE AssocID = :DelUser;");
-		$b->bindParam(':DelUser', $DelUser);
+		$b = $pdo->prepare("UPDATE FROM SalesAssociate SET Name=:n_name Email=:n_email Address=:n_address Username=:n_username Password=:n_password commission=:n_commission QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
+		$b->bindParam(':n_name', $new_name);
+		$b->bindParam(':n_email', $new_email);
+		$b->bindParam(':n_address', $new_address);
+		$b->bindParam(':n_username', $new_username);
+		$b->bindParam(':n_password', $new_password);
+		$b->bindParam(':n_commission', $new_commission);
+		$b->bindParam(':n_quoteid', $new_quoteid);
 		// try block to stop from crashing
-		$b->execute();
+		try {
+			$b->execute();
+		}
+		catch exception $e {
+			echo "Invalid edit inputs";
+		}
 	}
 		
 	echo '<form action="" method="GET">
