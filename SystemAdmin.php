@@ -85,7 +85,6 @@ echo "<body>";
 		</form>';
 
 		echo '<form action="" method="GET">
-  			<br><br>
 			<h3>Please Enter UserID to Delete</h3>
 			<input type="text" name="UserID">
    			<br>
