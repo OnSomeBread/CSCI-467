@@ -93,7 +93,6 @@ echo "<body>";
   		</form>';
 
 		echo '<br><form action="" method="GET">
-  			<br><br>
 			<h3>Please Enter Associate ID Information</h3>
 			<input type="text" name="associd">
    			<br>
