@@ -38,7 +38,5 @@ CREATE TABLE SalesAssociate (
   Address char(40) NOT NULL,
   Username char(40) UNIQUE NOT NULL,
   Password char(40) NOT NULL,
-  commission float(6) NOT NULL,
-  QuoteID int(15) NOT NULL,
-  FOREIGN KEY (QuoteID) REFERENCES Quotes(QuoteID)
+  commission float(6) NOT NULL
 );
