@@ -9,6 +9,7 @@ echo "<head>
 </head>";
 
 echo "<body>";
+	echo "<div style='text-align: center;'>";
 	echo '<h1>Create a New Sales Associate</h1>';
 
 	//new sales associate creation
