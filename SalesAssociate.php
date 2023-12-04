@@ -127,5 +127,5 @@ if($login == "" || $login == "Invalid username or password") {
 		</form>';
 }
 
-
+</body>
 ?>
