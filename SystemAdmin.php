@@ -47,6 +47,13 @@ echo "<body>";
 	if (isset($_GET['edit'])){
 		// change update line
 		$b = $pdo->prepare("UPDATE FROM SalesAssociate SET Name=:n_name Email=:n_email Address=:n_address Username=:n_username Password=:n_password commission=:n_commission QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
+		$new_name = $_GET['newname'];
+		$new_email = $_GET['newemail'];
+		$new_address = $_GET['newaddress'];
+		$new_username = $_GET['newusername'];
+		$new_password = $_GET['newpassword'];
+		$new_commission = $_GET['newcommission'];
+		$new_quoteid = $_GET['newquoteid'];
 		$b->bindParam(':n_name', $new_name);
 		$b->bindParam(':n_email', $new_email);
 		$b->bindParam(':n_address', $new_address);
@@ -95,7 +102,7 @@ echo "<body>";
 		echo '<br><form action="" method="GET">
   			<br><br>
 			<h3>Please Enter UserID to Edit and what to change it to</h3>
-			<input type="text" name="UserID">
+			<input type="text" name="associd">
    			<br>
 			<p>Enter a new name</p>
 			<input type="text" name="newname">
