@@ -82,6 +82,18 @@ if($login == "" || $login == "Invalid username or password") {
 		</form>';
 }
 
+if($login == "correct"){
+echo "<form method=POST action=>";
+echo '<label for="customer">Select Customer:</label>'; 
+echo '<select id="customer" name="selected_customer">';
+echo '<option value="">select one</option>';
+foreach ($rows as $option){
+	echo "<option value=\"$option\">$option</option>";			  }
+echo '<input type="submit" value="New Quote">';
+echo '</select><br/>';	
+echo "</form>";
+}
+
 try {
 $pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
@@ -122,17 +134,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 }
 } catch(PDOexception $e){
 	echo "Connection to database failed: ".$e->getMessage();
-}
-if($login == "correct"){
-echo "<form method=POST action=>";
-echo '<label for="customer">Select Customer:</label>'; 
-echo '<select id="customer" name="selected_customer">';
-echo '<option value="">select one</option>';
-foreach ($rows as $option){
-	echo "<option value=\"$option\">$option</option>";			  }
-echo '<input type="submit" value="New Quote">';
-echo '</select><br/>';	
-echo "</form>";
 }
 
 ?>
