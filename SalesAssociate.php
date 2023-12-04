@@ -39,6 +39,28 @@ echo "<head>
      </head>";
 echo "<body>";
 
+$login = "";
+if (!isset($_SESSION['username'])) {
+	// If not logged in, check if the login form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Check username and password against the database
+        $query = "SELECT * FROM SalesAssociate WHERE Username='$username' AND Password='$password'";
+        $result = $pdo->query($query);
+
+        if ($result->rowCount() > 0) {
+            // If credentials are valid, store the username in the session
+            $_SESSION['username'] = $username;
+	    $login = "correct";
+        } else {
+            $login = "Invalid username or password";
+		echo $login;
+        }
+    }
+}
+
 try {
 $pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
@@ -79,28 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 }
 } catch(PDOexception $e){
 	echo "Connection to database failed: ".$e->getMessage();
-}
-
-$login = "";
-if (!isset($_SESSION['username'])) {
-	// If not logged in, check if the login form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        // Check username and password against the database
-        $query = "SELECT * FROM SalesAssociate WHERE Username='$username' AND Password='$password'";
-        $result = $pdo->query($query);
-
-        if ($result->rowCount() > 0) {
-            // If credentials are valid, store the username in the session
-            $_SESSION['username'] = $username;
-	    $login = "correct";
-        } else {
-            $login = "Invalid username or password";
-		echo $login;
-        }
-    }
 }
 	
 if($login == "" || $login == "Invalid username or password") {
