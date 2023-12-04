@@ -66,15 +66,7 @@ if (isset($_POST['newQuote'])) {
     // Execute the SQL query
     	$g = $pdo->exec("INSERT INTO Quotes (Date_, SecretNote, Status) VALUES ('" . date("m/d/Y") . "', '', '0')");
 	$CurrentQID = $pdo->lastInsertID();
-	//echo "Last Inserted ID: " . $CurrentQID;
-
-	$errorInfo = $pdo->errorInfo();
-    	if ($errorInfo[0] != '00000') {
-        	echo "Error inserting into Quotes: " . $errorInfo[2];
-    	} else {
-        	$CurrentQID = $pdo->lastInsertID();
-        	echo "Last Inserted ID: " . $CurrentQID;
-    	}
+	echo "Last Inserted ID: " . $CurrentQID;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 try {
