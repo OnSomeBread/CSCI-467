@@ -122,6 +122,10 @@ if($login == "correct"){
 	echo '<option value="">select one</option>';
 	foreach ($rows as $option){
 		echo "<option value=\"$option\">$option</option>";			  }
+	$username = $_POST['username'];
+        $password = $_POST['password'];
+	echo '<input id="username" type="hidden" value=' . $username . '/>';
+	echo '<input id="password" type="hidden" value=' . $password . '/>';
 	echo '<input type="submit" value="New Quote">';
 	echo '</select><br/>';	
 	echo "</form>";
