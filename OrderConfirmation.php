@@ -1,4 +1,5 @@
 <?php
+include("styles.css");
 include("pass+.php");
 
 echo "<head></head>";
