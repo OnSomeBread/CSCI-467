@@ -13,5 +13,5 @@ INSERT INTO LineItems (ItemName, Quantity, UnitPrice, Discount, TotalPrice, Quot
   ('Table', 5, 3.50, 0.75, 15.75, 3);
 
 -- Insert data into SalesAssociate table
-INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission, QuoteID) VALUES
-  ('John Doe', 'john.doe@example.com', '123 Main St', 'john_doe', 'password123', 5.0, 1);
+INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission) VALUES
+  ('John Doe', 'john.doe@example.com', '123 Main St', 'john_doe', 'password123', 5.0);
