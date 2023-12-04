@@ -47,14 +47,13 @@ echo "<body>";
 	if (isset($_GET['edit'])){
 		// change update line
 		$b = $pdo->prepare("UPDATE SalesAssociate SET Name=:n_name, Email=:n_email, Address=:n_address, 
-  			Username=:n_username, Password=:n_password, commission=:n_commission, QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
+  			Username=:n_username, Password=:n_password, commission=:n_commission WHERE AssocID=:AssocID;");
 		$b->bindParam(':n_name', $_GET['newname']);
 		$b->bindParam(':n_email', $_GET['newemail']);
 		$b->bindParam(':n_address', $_GET['newaddress']);
 		$b->bindParam(':n_username', $_GET['newusername']);
 		$b->bindParam(':n_password', $_GET['newpassword']);
 		$b->bindParam(':n_commission', $_GET['newcommission']);
-		$b->bindParam(':n_quoteid', $_GET['newquoteid']);
 		$b->bindParam(':AssocID', $_GET['associd']);
 		// try block to stop from crashing
 		// try {
@@ -111,8 +110,6 @@ echo "<body>";
 			<input type="text" name="newpassword">
 			<p>Enter a new commission value</p>
 			<input type="text" name="newcommission">
-			<p>Enter a new QuoteID</p>
-			<input type="text" name="newquoteid">
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
 
