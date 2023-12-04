@@ -92,7 +92,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     	$Email = $xresult["contact"];
     	$Country = $xresult["city"];
     	$Address = $xresult["street"];
-    	$QuoteID = $CurrentQID;
+    	$QuoteID = strval($CurrentQID);
 
 	//Name -> Name
 	//City -> country
