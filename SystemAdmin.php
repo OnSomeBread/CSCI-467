@@ -54,6 +54,7 @@ echo "<body>";
 		$b->bindParam(':n_password', $_GET['newpassword']);
 		$b->bindParam(':n_commission', $_GET['newcommission']);
 		$b->bindParam(':n_quoteid', $_GET['newquoteid']);
+		$b->bindParam(':AssocID', $_GET['associd']);
 		// try block to stop from crashing
 		// try {
 		 	$b->execute();
