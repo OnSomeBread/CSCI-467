@@ -47,20 +47,13 @@ echo "<body>";
 	if (isset($_GET['edit'])){
 		// change update line
 		$b = $pdo->prepare("UPDATE FROM SalesAssociate SET Name=:n_name Email=:n_email Address=:n_address Username=:n_username Password=:n_password commission=:n_commission QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
-		$new_name = $_GET['newname'];
-		$new_email = $_GET['newemail'];
-		$new_address = $_GET['newaddress'];
-		$new_username = $_GET['newusername'];
-		$new_password = $_GET['newpassword'];
-		$new_commission = $_GET['newcommission'];
-		$new_quoteid = $_GET['newquoteid'];
-		$b->bindParam(':n_name', $new_name);
-		$b->bindParam(':n_email', $new_email);
-		$b->bindParam(':n_address', $new_address);
-		$b->bindParam(':n_username', $new_username);
-		$b->bindParam(':n_password', $new_password);
-		$b->bindParam(':n_commission', $new_commission);
-		$b->bindParam(':n_quoteid', $new_quoteid);
+		$b->bindParam(':n_name', $_GET['newname']);
+		$b->bindParam(':n_email', $_GET['newemail']);
+		$b->bindParam(':n_address', $_GET['newaddress']);
+		$b->bindParam(':n_username', $_GET['newusername']);
+		$b->bindParam(':n_password', $_GET['newpassword']);
+		$b->bindParam(':n_commission', $_GET['newcommission']);
+		$b->bindParam(':n_quoteid', $_GET['newquoteid']);
 		// try block to stop from crashing
 		// try {
 		 	$b->execute();
