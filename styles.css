@@ -2,8 +2,7 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #3B4866, #428bca); /* Gradient background */
-    color: #fff; /* Text color, adjust as needed */
+    background-color: #f4f4f4;
     margin: 20px;
 }
 
