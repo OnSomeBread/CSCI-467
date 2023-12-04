@@ -96,7 +96,7 @@ echo "<body>";
 
 		echo '<br><form action="" method="GET">
   			<br><br>
-			<h3>Please Enter Associate ID to Edit and what to change it to</h3>
+			<h3>Please Enter Associate ID Information</h3>
 			<input type="text" name="associd">
    			<br>
 			<p>Enter a new name</p>
