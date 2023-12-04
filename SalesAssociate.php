@@ -106,7 +106,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     $n->bindParam(':Country', $Country);
     $n->bindParam(':Address', $Address);
     $n->bindParam(':QuoteID', $QuoteID);
-	echo $QuoteID;
+	echo $CurrentQID;
     
     // Executing the prepared statement
     $n->execute();
