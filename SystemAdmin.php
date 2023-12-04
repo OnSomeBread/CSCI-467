@@ -43,6 +43,14 @@ echo "<body>";
 		$b->bindParam(':DelUser', $DelUser);
 		$b->execute();
 	}
+
+	if (isset($_GET['edit'])){
+		// change update line
+		$b = $pdo->prepare("UPDATE FROM SalesAssociate WHERE AssocID = :DelUser;");
+		$b->bindParam(':DelUser', $DelUser);
+		// try block to stop from crashing
+		$b->execute();
+	}
 		
 	echo '<form action="" method="GET">
 			<br><br>
