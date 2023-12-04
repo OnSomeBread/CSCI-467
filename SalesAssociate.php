@@ -116,14 +116,14 @@ if($login == "" || $login == "Invalid username or password") {
 }
 
 if($login == "correct"){
-echo "<form method=POST action=>";
-echo '<label for="customer">Select Customer:</label>'; 
-echo '<select id="customer" name="selected_customer">';
-echo '<option value="">select one</option>';
-foreach ($rows as $option){
-	echo "<option value=\"$option\">$option</option>";			  }
-echo '<input type="submit" value="New Quote">';
-echo '</select><br/>';	
-echo "</form>";
+	echo "<form method=POST action=>";
+	echo '<label for="customer">Select Customer:</label>'; 
+	echo '<select id="customer" name="selected_customer">';
+	echo '<option value="">select one</option>';
+	foreach ($rows as $option){
+		echo "<option value=\"$option\">$option</option>";			  }
+	echo '<input type="submit" value="New Quote">';
+	echo '</select><br/>';	
+	echo "</form>";
 }
 ?>
