@@ -39,7 +39,7 @@ include("pass+.php");
 echo "<head>
      </head>";
 echo "<body>";
-$CurrentQID;
+$CurrentQID = $_POST['CurrentQID'];
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
@@ -88,7 +88,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     	$Email = $xresult["contact"];
     	$Country = $xresult["city"];
     	$Address = $xresult["street"];
-    	$QuoteID = $_POST['CurrentQID'];
+    	$QuoteID = $CurrentQID;
 
 	//Name -> Name
 	//City -> country
