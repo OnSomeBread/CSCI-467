@@ -9,8 +9,7 @@ echo "<head>
 </head>";
 
 echo "<body>";
-	echo "<div style='text-align: center;'>";
-	echo '<h1>Create a New Sales Associate</h1>';
+	echo '<div style='text-align: center; <h1>Create a New Sales Associate</h1>';
 
 	//new sales associate creation
 	if (isset($_GET['create']) && isset($_GET['Name']) && isset($_GET['Email']) && isset($_GET['Address']) && isset($_GET['Username']) && isset($_GET['Password'])){
