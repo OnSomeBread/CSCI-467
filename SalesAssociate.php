@@ -82,6 +82,7 @@ $rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 echo "\n";
 
 if (isset($_POST['newCust'])){ //check if form is submitted
+			       echo "HERE";
 	$Name = $_POST["selected_customer"];
 					  
 	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
@@ -98,7 +99,6 @@ if (isset($_POST['newCust'])){ //check if form is submitted
 	//street -> Address
 	//Contact -> Email
     // Using prepared statement with placeholders
-			      echo $CurrentQID;
     $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
     
     // Binding parameters
