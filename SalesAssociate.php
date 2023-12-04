@@ -48,6 +48,7 @@ $rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 
 echo "\n";
 
+if($login == "correct"){
 echo "<form method=POST action=>";
 echo '<label for="customer">Select Customer:</label>'; 
 echo '<select id="customer" name="selected_customer">';
@@ -57,6 +58,7 @@ foreach ($rows as $option){
 echo '<input type="submit" value="New Quote">';
 echo '</select><br/>';	
 echo "</form>";
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
@@ -133,24 +135,4 @@ if($login == "" || $login == "Invalid username or password") {
 		</form>';
 }
 
-if($login == "correct"){
-        echo '<form action="" method="GET">
-			<br><br>
-			<h3>Please enter a name</h3>
-			<input type="text" name="Name">
-			<h3>Please enter a email</h3>
-			<input type="text" name="Email">
-			<br>
-   			<h3>Please enter a country</h3>
-                        <input type="text" name="Country">
-			<br>
-   			<h3>Please enter a address</h3>
-                        <input type="text" name="Address">
-			<br>
-   			<h3>Please enter a quoteid</h3>
-                        <input type="text" name="QuoteID">
-			<br>
-			<button id="Enter" type="submit" name="Enter">Enter</button>
-		</form>';
-}
 ?>
