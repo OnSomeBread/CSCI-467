@@ -60,7 +60,12 @@ if (!isset($_SESSION['username'])) {
         }
     }
 }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_POST['newQuote'])) {
+    // Execute the SQL query
+    $g = $pdo->query("INSERT INTO Quotes (Date_, SecretNote, Status) VALUES ('" . date("Y/m/d") . "', '', '0')");
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 try {
 $pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
@@ -70,7 +75,7 @@ $rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 
 echo "\n";
 
-if (isset($_POST['newQuote'])){ //check if form is submitted
+if (isset($_POST['newCust'])){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
 					  
 	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
@@ -116,6 +121,16 @@ if($login == "" || $login == "Invalid username or password") {
 }
 
 if($login == "correct"){
+	echo '<form method=POST action="">';
+		$username = $_POST['username'];
+        	$password = $_POST['password'];
+		echo '<input name="username" type="hidden" value=' . $username . '>';
+		echo '<input name="password" type="hidden" value=' . $password . '>';
+	    	echo '<input type="submit" name="newQuote" value="Create New Quote">';
+	echo '</form>';
+}
+
+if($login == "correct"){
 	echo "<form method=POST action=>";
 	echo '<label for="customer">Select Customer:</label>'; 
 	echo '<select id="customer" name="selected_customer">';
@@ -126,7 +141,7 @@ if($login == "correct"){
         $password = $_POST['password'];
 	echo '<input name="username" type="hidden" value=' . $username . '>';
 	echo '<input name="password" type="hidden" value=' . $password . '>';
-	echo '<input name="newQuote" type="submit" value="New Quote">';
+	echo '<input name="newCust" type="submit" value="New Customer">';
 	echo '</select><br/>';	
 	echo "</form>";
 }
