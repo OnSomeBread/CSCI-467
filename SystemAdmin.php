@@ -58,7 +58,7 @@ echo "<body>";
 		try {
 			$b->execute();
 		}
-		catch exception $e {
+		catch (Exception $e) {
 			echo "Invalid edit inputs";
 		}
 	}
