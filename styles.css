@@ -39,8 +39,8 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
-</style>
 
 button:hover {
     background-color: #45a049;
 }
+</style>
