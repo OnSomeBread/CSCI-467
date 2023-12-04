@@ -86,19 +86,19 @@ echo "<body>";
 			<h3>Please Enter UserID to Edit and what to change it to</h3>
 			<input type="text" name="UserID">
    			<br>
-			<h4>Enter a new name</h4>
+			<p>Enter a new name</p>
 			<input type="text" name="newname">
-			<h4>Enter a new email</h4>
+			<p>Enter a new email</p>
 			<input type="text" name="newemail">
-			<h4>Enter a new address</h4>
+			<p>Enter a new address</p>
 			<input type="text" name="newaddress">
-			<h4>Enter a new username</h4>
+			<p>Enter a new username</p>
 			<input type="text" name="newusername">
-			<h4>Enter a new password</h4>
+			<p>Enter a new password</p>
 			<input type="text" name="newpassword">
-			<h4>Enter a new commission value</h4>
+			<p>Enter a new commission value</p>
 			<input type="text" name="newcommission">
-			<h4>Enter a new QuoteID</h4>
+			<p>Enter a new QuoteID</p>
 			<input type="text" name="newquoteid">
 			<button id="edit" type="submit" name="edit">Edit</button
   		</form>';
