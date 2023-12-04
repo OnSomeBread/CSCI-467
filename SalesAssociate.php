@@ -30,6 +30,7 @@ th, td {
 
 <img src="">
 <?php
+include("styles.css");
 include("pass+.php");
 
 //example redirect function
