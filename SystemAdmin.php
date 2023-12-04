@@ -46,7 +46,12 @@ echo "<body>";
 
 	if (isset($_GET['edit'])){
 		// change update line
-		$b = $pdo->prepare("UPDATE SalesAssociate SET Name=:n_name, Email=:n_email, Address=:n_address, Username=:n_username, Password=:n_password, commission=:n_commission, QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
+		$query = $pdo->query("SELECT * FROM SalesAssociate WHERE " . $_GET['associd'] . ";");
+		if ($query->rowCount() == 0) {
+			echo "empty query";
+		}
+		$b = $pdo->prepare("UPDATE SalesAssociate SET Name=:n_name, Email=:n_email, Address=:n_address, 
+  			Username=:n_username, Password=:n_password, commission=:n_commission, QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
 		$b->bindParam(':n_name', $_GET['newname']);
 		$b->bindParam(':n_email', $_GET['newemail']);
 		$b->bindParam(':n_address', $_GET['newaddress']);
@@ -95,7 +100,7 @@ echo "<body>";
 
 		echo '<br><form action="" method="GET">
   			<br><br>
-			<h3>Please Enter UserID to Edit and what to change it to</h3>
+			<h3>Please Enter Associate ID to Edit and what to change it to</h3>
 			<input type="text" name="associd">
    			<br>
 			<p>Enter a new name</p>
