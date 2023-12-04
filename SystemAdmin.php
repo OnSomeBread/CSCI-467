@@ -81,7 +81,7 @@ echo "<body>";
 			<input type="text" name="Password">
 
 			<br>
-			<button id="create" type="submit" name="create" value="create">Create</button
+			<button id="create" type="submit" name="create" value="create">Create</button>
 		</form>';
 
 		echo '<form action="" method="GET">
@@ -111,7 +111,7 @@ echo "<body>";
 			<input type="text" name="newcommission">
 			<p>Enter a new QuoteID</p>
 			<input type="text" name="newquoteid">
-			<button id="edit" type="submit" name="edit">Edit</button
+			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
 
 	$query = $pdo->query("SELECT * FROM SalesAssociate;");
