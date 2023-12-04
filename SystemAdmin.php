@@ -46,7 +46,7 @@ echo "<body>";
 
 	if (isset($_GET['edit'])){
 		// change update line
-		$b = $pdo->prepare("UPDATE FROM SalesAssociate SET Name=:n_name Email=:n_email Address=:n_address Username=:n_username Password=:n_password commission=:n_commission QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
+		$b = $pdo->prepare("UPDATE FROM SalesAssociate SET Name=:n_name, Email=:n_email, Address=:n_address, Username=:n_username, Password=:n_password, commission=:n_commission, QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
 		$b->bindParam(':n_name', $_GET['newname']);
 		$b->bindParam(':n_email', $_GET['newemail']);
 		$b->bindParam(':n_address', $_GET['newaddress']);
