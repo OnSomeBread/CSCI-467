@@ -88,7 +88,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     	$Email = $xresult["contact"];
     	$Country = $xresult["city"];
     	$Address = $xresult["street"];
-    	$QuoteID = $CurrentQID;
+    	$QuoteID = $pdo->lastInsertID();
 
 	//Name -> Name
 	//City -> country
