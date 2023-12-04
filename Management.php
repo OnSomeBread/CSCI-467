@@ -23,10 +23,12 @@ echo "<body>";
      
 
      if($query->rowCount() == 0){
-     update_table_with_buttons($query);
          echo "<div style='text-align: center; font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px;'>";
          echo "There is nothing here at the moment.";
          echo "</div>";
+     }
+     else {
+          update_table_with_buttons($query);
      }
 
 
