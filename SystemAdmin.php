@@ -90,7 +90,7 @@ echo "<body>";
 			<button id="delete" type="submit" name="delete">Delete</button>
   		</form>';
 
-		echo '<br><form action="" method="GET">
+		echo '<form action="" method="GET">
 			<h3>Please Enter Associate ID Information</h3>
 			<input type="text" name="associd">
    			<br>
