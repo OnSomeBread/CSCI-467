@@ -62,12 +62,12 @@ echo "<body>";
 		$b->bindParam(':n_commission', $new_commission);
 		$b->bindParam(':n_quoteid', $new_quoteid);
 		// try block to stop from crashing
-		try {
-			$b->execute();
-		}
-		catch (Exception $e) {
-			echo "Invalid edit inputs";
-		}
+		// try {
+		// 	$b->execute();
+		// }
+		// catch (Exception $e) {
+		// 	echo "Invalid edit inputs";
+		// }
 	}
 		
 	echo '<form action="" method="GET">
