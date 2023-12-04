@@ -1,7 +1,6 @@
 <?php
-
-include("pass+.php");
 include("styles.css");
+include("pass+.php");
 
 echo "<head>
 	<title>
