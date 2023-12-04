@@ -38,7 +38,7 @@ include("pass+.php");
 echo "<head>
      </head>";
 echo "<body>";
-
+$CurrentQID = "";
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
@@ -63,7 +63,8 @@ if (!isset($_SESSION['username'])) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['newQuote'])) {
     // Execute the SQL query
-    $g = $pdo->query("INSERT INTO Quotes (Date_, SecretNote, Status) VALUES ('" . date("Y/m/d") . "', '', '0')");
+    	$g = $pdo->prepare("INSERT INTO Quotes (Date_, SecretNote, Status) VALUES ('" . date("Y/m/d") . "', '', '0')");
+	$CurrentQID = $pdo->lastInsertID();
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 try {
@@ -85,7 +86,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     	$Email = $xresult["contact"];
     	$Country = $xresult["city"];
     	$Address = $xresult["street"];
-    	$QuoteID = '1';
+    	$QuoteID = $CurrentQID;
 
 	//Name -> Name
 	//City -> country
