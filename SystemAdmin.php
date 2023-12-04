@@ -65,7 +65,6 @@ echo "<body>";
 	}
 		
 	echo '<form action="" method="GET">
-			<br><br>
 			<h3>Please Enter a Name</h3>
 			<input type="text" name="Name">
 
