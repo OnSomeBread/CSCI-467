@@ -1,5 +1,5 @@
 <?php
-<style>
+echo <style>
 	h1 {
         	text-align: center;
     	}
