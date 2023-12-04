@@ -1,9 +1,4 @@
 <?php
-echo <style>
-	h1 {
-        	text-align: center;
-    	}
-</style>
 include("styles.css");
 include("pass+.php");
 
