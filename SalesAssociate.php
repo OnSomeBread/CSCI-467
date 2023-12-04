@@ -39,14 +39,47 @@ echo "<head>
      </head>";
 echo "<body>";
 
-//ERROR HERE
-//else {
-//    // If the user is logged in, display the query interface
-//    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//        // Process and execute the query
-//        
-//    }
-//}
+try {
+$pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
+
+$xs = $pdx->query("SELECT name FROM customers;");
+$rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
+//draw_table($rows);
+
+echo "\n";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
+	$Name = $_POST["selected_customer"];
+					  
+	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
+	$xs->bindParam(':customer_name', $Name);
+	$xs->execute();
+	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
+    	$Email = $xresult["contact"];
+    	$Country = $xresult["city"];
+    	$Address = $xresult["street"];
+    	$QuoteID = '1';
+
+	//Name -> Name
+	//City -> country
+	//street -> Address
+	//Contact -> Email
+    // Using prepared statement with placeholders
+    $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
+    
+    // Binding parameters
+    $n->bindParam(':Name', $Name);
+    $n->bindParam(':Email', $Email);
+    $n->bindParam(':Country', $Country);
+    $n->bindParam(':Address', $Address);
+    $n->bindParam(':QuoteID', $QuoteID);
+    
+    // Executing the prepared statement
+    $n->execute();
+}
+} catch(PDOexception $e){
+	echo "Connection to database failed: ".$e->getMessage();
+}
 
 $login = "";
 if (!isset($_SESSION['username'])) {
@@ -94,46 +127,5 @@ echo '</select><br/>';
 echo "</form>";
 }
 
-try {
-$pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
-
-$xs = $pdx->query("SELECT name FROM customers;");
-$rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
-//draw_table($rows);
-
-echo "\n";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
-	$Name = $_POST["selected_customer"];
-					  
-	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
-	$xs->bindParam(':customer_name', $Name);
-	$xs->execute();
-	$xresult = $xs->fetch(PDO::FETCH_ASSOC);
-    	$Email = $xresult["contact"];
-    	$Country = $xresult["city"];
-    	$Address = $xresult["street"];
-    	$QuoteID = '1';
-
-	//Name -> Name
-	//City -> country
-	//street -> Address
-	//Contact -> Email
-    // Using prepared statement with placeholders
-    $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
-    
-    // Binding parameters
-    $n->bindParam(':Name', $Name);
-    $n->bindParam(':Email', $Email);
-    $n->bindParam(':Country', $Country);
-    $n->bindParam(':Address', $Address);
-    $n->bindParam(':QuoteID', $QuoteID);
-    
-    // Executing the prepared statement
-    $n->execute();
-}
-} catch(PDOexception $e){
-	echo "Connection to database failed: ".$e->getMessage();
-}
 
 ?>
