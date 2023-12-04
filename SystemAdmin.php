@@ -46,10 +46,6 @@ echo "<body>";
 
 	if (isset($_GET['edit'])){
 		// change update line
-		$query = $pdo->query("SELECT * FROM SalesAssociate WHERE " . $_GET['associd'] . ";");
-		if ($query->rowCount() == 0) {
-			echo "empty query";
-		}
 		$b = $pdo->prepare("UPDATE SalesAssociate SET Name=:n_name, Email=:n_email, Address=:n_address, 
   			Username=:n_username, Password=:n_password, commission=:n_commission, QuoteID=:n_quoteid WHERE AssocID=:AssocID;");
 		$b->bindParam(':n_name', $_GET['newname']);
