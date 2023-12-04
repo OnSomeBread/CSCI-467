@@ -39,7 +39,10 @@ include("pass+.php");
 echo "<head>
      </head>";
 echo "<body>";
-$CurrentQID = $_POST['CurrentQID'];
+$CurrentQID;
+if (isset($_POST['CurrentQID'])){
+	$CurrentQID = $_POST['CurrentQID'];
+}
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
