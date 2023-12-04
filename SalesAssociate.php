@@ -70,7 +70,7 @@ $rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 
 echo "\n";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
+if (isset($_POST['newQuote'])){ //check if form is submitted
 	$Name = $_POST["selected_customer"];
 					  
 	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
@@ -126,7 +126,7 @@ if($login == "correct"){
         $password = $_POST['password'];
 	echo '<input name="username" type="hidden" value=' . $username . '>';
 	echo '<input name="password" type="hidden" value=' . $password . '>';
-	echo '<input type="submit" value="New Quote">';
+	echo '<input name="newQuote" type="submit" value="New Quote">';
 	echo '</select><br/>';	
 	echo "</form>";
 }
