@@ -94,17 +94,17 @@ echo "<body>";
 			<h3>Please Enter Associate ID Information</h3>
 			<input type="text" name="associd">
    			<br>
-			<p>Enter a New Name</p>
+			<h3>Enter a New Name</h3>
 			<input type="text" name="newname">
-			<p>Enter a New Email</p>
+			<h3>Enter a New Email</h3>
 			<input type="text" name="newemail">
-			<p>Enter a New Address</p>
+			<h3>Enter a New Address</h3>
 			<input type="text" name="newaddress">
-			<p>Enter a New Username</p>
+			<h3>Enter a New Username</h3>
 			<input type="text" name="newusername">
-			<p>Enter a New Password</p>
+			<h3>Enter a New Password</h3>
 			<input type="text" name="newpassword">
-			<p>Enter a New Commission Rate</p>
+			<h3>Enter a New Commission Rate</h3>
 			<input type="text" name="newcommission">
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
