@@ -63,7 +63,7 @@ echo "<body>";
 		$b->bindParam(':n_quoteid', $new_quoteid);
 		// try block to stop from crashing
 		// try {
-		// 	$b->execute();
+		 	$b->execute();
 		// }
 		// catch (Exception $e) {
 		// 	echo "Invalid edit inputs";
