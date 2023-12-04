@@ -81,6 +81,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //check if form is submitted
 	echo "Connection to database failed: ".$e->getMessage();
 }
 
+if($login == "correct"){
+echo "<form method=POST action=>";
+echo '<label for="customer">Select Customer:</label>'; 
+echo '<select id="customer" name="selected_customer">';
+echo '<option value="">select one</option>';
+foreach ($rows as $option){
+	echo "<option value=\"$option\">$option</option>";			  }
+echo '<input type="submit" value="New Quote">';
+echo '</select><br/>';	
+echo "</form>";
+}
+
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
@@ -115,16 +127,5 @@ if($login == "" || $login == "Invalid username or password") {
 		</form>';
 }
 
-if($login == "correct"){
-echo "<form method=POST action=>";
-echo '<label for="customer">Select Customer:</label>'; 
-echo '<select id="customer" name="selected_customer">';
-echo '<option value="">select one</option>';
-foreach ($rows as $option){
-	echo "<option value=\"$option\">$option</option>";			  }
-echo '<input type="submit" value="New Quote">';
-echo '</select><br/>';	
-echo "</form>";
-}
 
 ?>
