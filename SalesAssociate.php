@@ -98,6 +98,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
 	//street -> Address
 	//Contact -> Email
     // Using prepared statement with placeholders
+			      echo $CurrentQID;
     $n = $pdo->prepare("INSERT INTO CustomerData (Name, Email, Country, Address, QuoteID) VALUES (:Name, :Email, :Country, :Address, :QuoteID)");
     
     // Binding parameters
@@ -106,7 +107,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     $n->bindParam(':Country', $Country);
     $n->bindParam(':Address', $Address);
     $n->bindParam(':QuoteID', $QuoteID);
-	echo $CurrentQID;
+	
     
     // Executing the prepared statement
     $n->execute();
