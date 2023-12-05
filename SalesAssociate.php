@@ -124,7 +124,7 @@ if (isset($_POST['lineItemSub'])){
 		$TotalPrice = $_POST['TotalPrice'];
 		$QuoteID = strval($CurrentQID);
 
-		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount']) && !empty($_POST['TotalPrice'])){
+		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount']) && !empty($_POST['TotalPrice']) && !empty($_POST['QuoteId'])){
 			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, Discount, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :Discount, :TotalPrice, :QuoteId)");
 
 			$rs->bindParam(':ItemName', $ItemName);
@@ -135,7 +135,7 @@ if (isset($_POST['lineItemSub'])){
 			$rs->bindParam(':QuoteId',$QuoteId);
 			$rs->execute();
 		}
-		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['TotalPrice']) && empty($_POST['Discount'])){
+		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['TotalPrice']) && !empty($_POST['QuoteId']) && empty($_POST['Discount'])){
 			
 			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :TotalPrice, :QuoteId)");
 
