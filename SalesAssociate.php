@@ -155,6 +155,15 @@ if (isset($_POST['lineItemSub'])){
 		}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_POST['secretNote'])) {
+	$QuoteID = strval($CurrentQID);
+	$Message = $_POST['message'];
+	$updateSecret = $pdo->prepare("UPDATE Quotes Set Secretnote = :message WHERE QuoteID = :quoteId");
+	$updateSecret = $pdo->bindParam(':message', $Message);
+	$updateSecret = $pdo->bindParam(':quoteId', $QuoteID, PDO::MARAM_INT);
+	$updateQuery->execute();
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['finishQuote'])) {
     // Execute the SQL query
 	$QuoteID = strval($CurrentQID);
@@ -235,7 +244,20 @@ if($login == "correct"){
 
 	echo "</form>";
 }
-
+if(login == "correct"){
+	echo '<form method=POST action="">';
+        	echo '<label for="message">Message (up to 244 characters):</label>';
+       		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
+	
+		$username = $_POST['username'];
+        	$password = $_POST['password'];
+		echo '<input name="username" type="hidden" value=' . $username . '>';
+		echo '<input name="password" type="hidden" value=' . $password . '>';
+		echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
+        	echo '<input type="submit" name="secretNote" value="Submit secret note">';
+    	echo '</form>';
+}
+	 
 if($login == "correct"){
 	echo '<form method=POST action="main.php">';
 		$username = $_POST['username'];
