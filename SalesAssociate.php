@@ -82,8 +82,6 @@ $rows = $xs->fetchAll(PDO::FETCH_COLUMN); //fetch customer names
 echo "\n";
 
 if (isset($_POST['newCust'])){ //check if form is submitted
-			      echo "HERE";
-			       echo $CurrentQID;
 	$Name = $_POST["selected_customer"];
 					  
 	$xs = $pdx->prepare("SELECT street, city, contact FROM customers WHERE name = :customer_name");
