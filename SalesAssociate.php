@@ -195,12 +195,6 @@ if($login == "correct"){
 if($login == "correct"){
 	echo "<form method=POST action=>";
 	
-	$username = $_POST['username'];
-        $password = $_POST['password'];
-	echo '<input name="username" type="hidden" value=' . $username . '>';
-	echo '<input name="password" type="hidden" value=' . $password . '>';
-	echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
-	
 	echo '<label for="ItemName">Item Name:</label>';
 	echo '<input type="text" id="ItemName" name="ItemName">';
 	echo "<br>";
@@ -225,6 +219,12 @@ if($login == "correct"){
 	echo '<input type="text" id="TotalPrice" name="TotalPrice">';
 	echo "<br>";
 	echo "<br>";
+
+	$username = $_POST['username'];
+        $password = $_POST['password'];
+	echo '<input name="username" type="hidden" value=' . $username . '>';
+	echo '<input name="password" type="hidden" value=' . $password . '>';
+	echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
 
 	echo '<button type="submit" name="submit">submit</button>';
 
