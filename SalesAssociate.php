@@ -121,7 +121,7 @@ if (isset($_POST['lineItemSub'])){
 		$Quantity = $_POST['Quantity'];
 		$UnitPrice = $_POST['UnitPrice'];
 		$Discount = $_POST['Discount'];
-		$QuoteID = '1';
+		$QuoteID = strval($CurrentQID);
 
 		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount'])){
 
@@ -135,7 +135,7 @@ if (isset($_POST['lineItemSub'])){
 			$rs->bindParam(':UnitPrice', $UnitPrice);
 			$rs->bindParam(':Discount', $Discount);
 			$rs->bindParam(':TotalPrice',$TotalPrice);
-			$rs->bindParam(':QuoteId',$QuoteId);
+			$rs->bindParam(':QuoteId',$QuoteID);
 			$rs->execute();
 		}
 		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && empty($_POST['Discount'])){
@@ -149,7 +149,7 @@ if (isset($_POST['lineItemSub'])){
 			$rs->bindParam(':Quantity', $Quantity);
 			$rs->bindParam(':UnitPrice', $UnitPrice);
 			$rs->bindParam(':TotalPrice',$TotalPrice);
-			$rs->bindParam(':QuoteId',$QuoteId);
+			$rs->bindParam(':QuoteId',$QuoteID);
 			$rs->execute();
 
 		}
