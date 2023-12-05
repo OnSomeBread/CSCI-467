@@ -159,8 +159,8 @@ if (isset($_POST['secretNote'])) {
 	$QuoteID = strval($CurrentQID);
 	$Message = $_POST['message'];
 	$updateSecret = $pdo->prepare("UPDATE Quotes Set Secretnote = :message WHERE QuoteID = :quoteId");
-	$updateSecret = $pdo->bindParam(':message', $Message);
-	$updateSecret = $pdo->bindParam(':quoteId', $QuoteID, PDO::MARAM_INT);
+	$updateSecret->bindParam(':message', $Message);
+	$updateSecret->bindParam(':quoteId', $QuoteID, PDO::MARAM_INT);
 	$updateQuery->execute();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
