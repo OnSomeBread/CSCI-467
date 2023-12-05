@@ -121,7 +121,7 @@ if (isset($_POST['lineItemSub'])){
 		$Quantity = $_POST['Quantity'];
 		$UnitPrice = $_POST['UnitPrice'];
 		$Discount = $_POST['Discount'];
-		$QuoteID = strval($CurrentQID);
+		$QuoteID = 1;
 
 		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount'])){
 
