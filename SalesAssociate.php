@@ -115,7 +115,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
 	echo "Connection to database failed: ".$e->getMessage();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if (isset($_POST['submit'])){
+if (isset($_POST['lineItemSub'])){
 		
 		$ItemName = $_POST['ItemName'];
 		$Quantity = $_POST['Quantity'];
@@ -226,7 +226,7 @@ if($login == "correct"){
 	echo '<input name="password" type="hidden" value=' . $password . '>';
 	echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
 
-	echo '<button type="submit" name="submit">submit</button>';
+	echo '<button type="submit" name="lineItemSub">submit</button>';
 
 	echo "</form>";
 }
