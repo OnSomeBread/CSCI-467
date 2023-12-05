@@ -158,6 +158,7 @@ if (isset($_POST['lineItemSub'])){
 if (isset($_POST['secretNote'])) {
 	$QuoteID = strval($CurrentQID);
 	$Message = $_POST['message'];
+	//set secret note on current QuoteID
 	$updateSecret = $pdo->prepare("UPDATE Quotes Set Secretnote = :message WHERE QuoteID = :quoteId");
 	$updateSecret->bindParam(':message', $Message);
 	$updateSecret->bindParam(':quoteId', $QuoteID, PDO::PARAM_INT);
@@ -167,6 +168,7 @@ if (isset($_POST['secretNote'])) {
 if (isset($_POST['finishQuote'])) {
     // Execute the SQL query
 	$QuoteID = strval($CurrentQID);
+	//advance quote status from 0->1 from Sales Associate to Management
     	$updateQuery = $pdo->prepare("UPDATE Quotes SET Status = 1 WHERE QuoteID = :quoteId");
         $updateQuery->bindParam(':quoteId', $QuoteID, PDO::PARAM_INT);
         $updateQuery->execute();
@@ -257,7 +259,9 @@ if($login == "correct"){
         	echo '<input type="submit" name="secretNote" value="Submit secret note">';
     	echo '</form>';
 }
-	 
+
+//TODO: make this button return the user to main.php after the quote has been advanced
+//action="main.php" seems to send the user but does not set status = 1
 if($login == "correct"){
 	echo '<form method=POST action="">';
 		$username = $_POST['username'];
