@@ -221,11 +221,6 @@ if($login == "correct"){
 	echo "<br>";
 	echo "<br>";
 
-	echo '<label for="TotalPrice">Total Price:</label>';
-	echo '<input type="text" id="TotalPrice" name="TotalPrice">';
-	echo "<br>";
-	echo "<br>";
-
 	$username = $_POST['username'];
         $password = $_POST['password'];
 	echo '<input name="username" type="hidden" value=' . $username . '>';
