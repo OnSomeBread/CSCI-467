@@ -237,7 +237,7 @@ if($login == "correct"){
 }
 
 if($login == "correct"){
-	echo '<form method=POST action="">';
+	echo '<form method=POST action="main.php">';
 		$username = $_POST['username'];
         	$password = $_POST['password'];
 		echo '<input name="username" type="hidden" value=' . $username . '>';
