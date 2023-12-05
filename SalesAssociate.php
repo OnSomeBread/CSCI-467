@@ -244,7 +244,7 @@ if($login == "correct"){
 
 	echo "</form>";
 }
-if(login == "correct"){
+if($login == "correct"){
 	echo '<form method=POST action="">';
         	echo '<label for="message">Message (up to 244 characters):</label>';
        		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
