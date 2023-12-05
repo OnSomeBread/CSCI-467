@@ -124,7 +124,7 @@ if (isset($_POST['lineItemSub'])){
 		$TotalPrice = $_POST['TotalPrice'];
 		$QuoteID = strval($CurrentQID);
 
-		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount']) && !empty($_POST['TotalPrice']) && !empty($_POST['QuoteId'])){
+		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount']) && !empty($_POST['TotalPrice'])){
 			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, Discount, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :Discount, :TotalPrice, :QuoteId)");
 
 			$rs->bindParam(':ItemName', $ItemName);
@@ -135,7 +135,7 @@ if (isset($_POST['lineItemSub'])){
 			$rs->bindParam(':QuoteId',$QuoteId);
 			$rs->execute();
 		}
-		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['TotalPrice']) && !empty($_POST['QuoteId']) && empty($_POST['Discount'])){
+		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['TotalPrice']) && empty($_POST['Discount'])){
 			
 			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :TotalPrice, :QuoteId)");
 
@@ -226,7 +226,7 @@ if($login == "correct"){
 	echo '<input name="password" type="hidden" value=' . $password . '>';
 	echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
 
-	echo '<button type="submit" name="lineItemSub">submit</button>';
+	echo '<button type="submit" name="lineItemSub">Insert New Item</button>';
 
 	echo "</form>";
 }
