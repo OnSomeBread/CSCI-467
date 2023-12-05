@@ -149,7 +149,7 @@ if (isset($_POST['submit'])){
 		}
 		else{
 			echo "<br>";
-			echo "Erro: Please fill in all required fields.";
+			echo "Error: Please fill in all required fields.";
 		}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -223,11 +223,6 @@ if($login == "correct"){
 
 	echo '<label for="TotalPrice">Total Price:</label>';
 	echo '<input type="text" id="TotalPrice" name="TotalPrice">';
-	echo "<br>";
-	echo "<br>";
-
-	echo '<label for="QuoteId">Quote Id:</label>';
-	echo '<input type="text" id="QuoteId" name="QuoteId">';
 	echo "<br>";
 	echo "<br>";
 
