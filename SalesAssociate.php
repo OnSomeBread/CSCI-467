@@ -115,7 +115,7 @@ if (isset($_POST['newCust'])){ //check if form is submitted
 	echo "Connection to database failed: ".$e->getMessage();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST['submit'])){
 		
 		$ItemName = $_POST['ItemName'];
 		$Quantity = $_POST['Quantity'];
