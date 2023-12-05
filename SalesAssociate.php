@@ -127,7 +127,7 @@ if (isset($_POST['lineItemSub'])){
 
 			$UnitPrice = (double)$_POST['UnitPrice'];
 			$Quantity = (int)$_POST['Quantity'];
-			$TotalPrice = $UnitPrice * Quantity;
+			$TotalPrice = $UnitPrice * $Quantity;
 			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, Discount, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :Discount, :TotalPrice, :QuoteId)");
 
 			$rs->bindParam(':ItemName', $ItemName);
@@ -142,7 +142,7 @@ if (isset($_POST['lineItemSub'])){
 
 			$UnitPrice = (double)$_POST['UnitPrice'];
 			$Quantity = (int)$_POST['Quantity'];
-			$TotalPrice = $UnitPrice * Quantity;
+			$TotalPrice = $UnitPrice * $Quantity;
 			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :TotalPrice, :QuoteId)");
 
 			$rs->bindParam(':ItemName', $ItemName);
