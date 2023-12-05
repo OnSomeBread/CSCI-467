@@ -155,6 +155,14 @@ if (isset($_POST['lineItemSub'])){
 		}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_POST['finishQuote'])) {
+    // Execute the SQL query
+	$QuoteID = strval($CurrentQID);
+    	$updateQuery = $pdo->prepare("UPDATE Quotes SET Status = 1 WHERE QuoteID = :quoteId");
+        $updateQuery->bindParam(':quoteId', $QuoteID, PDO::PARAM_INT);
+        $updateQuery->execute();
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if($login == "" || $login == "Invalid username or password") {
 	echo '<form action="" method="POST">
 			<br><br>
@@ -226,5 +234,16 @@ if($login == "correct"){
 	echo '<button type="submit" name="lineItemSub">Insert New Item</button>';
 
 	echo "</form>";
+}
+
+if($login == "correct"){
+	echo '<form method=POST action="">';
+		$username = $_POST['username'];
+        	$password = $_POST['password'];
+		echo '<input name="username" type="hidden" value=' . $username . '>';
+		echo '<input name="password" type="hidden" value=' . $password . '>';
+		echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
+	    	echo '<input type="submit" name="finishQuote" value="Finish Quote">';
+	echo '</form>';
 }
 ?>
