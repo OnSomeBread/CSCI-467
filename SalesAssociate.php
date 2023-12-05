@@ -71,7 +71,7 @@ if (isset($_POST['newQuote'])) {
 	$CurrentQID = $pdo->lastInsertID();
 	echo "Your QuoteID is " . $CurrentQID;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 try {
 $pdx = new PDO("mysql:host=blitz.cs.niu.edu;dbname=csci467",'student','student');
 
@@ -114,7 +114,45 @@ if (isset($_POST['newCust'])){ //check if form is submitted
 } catch(PDOexception $e){
 	echo "Connection to database failed: ".$e->getMessage();
 }
-	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+		
+		$ItemName = $_POST['ItemName'];
+		$Quantity = $_POST['Quantity'];
+		$UnitPrice = $_POST['UnitPrice'];
+		$Discount = $_POST['Discount'];
+		$TotalPrice = $_POST['TotalPrice'];
+		$QuoteId = $_POST['QuoteId'];
+
+		if(!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['Discount']) && !empty($_POST['TotalPrice']) && !empty($_POST['QuoteId'])){
+			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, Discount, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :Discount, :TotalPrice, :QuoteId)");
+
+			$rs->bindParam(':ItemName', $ItemName);
+			$rs->bindParam(':Quantity', $Quantity);
+			$rs->bindParam(':UnitPrice', $UnitPrice);
+			$rs->bindParam(':Discount', $Discount);
+			$rs->bindParam(':TotalPrice',$TotalPrice);
+			$rs->bindParam(':QuoteId',$QuoteId);
+			$rs->execute();
+		}
+		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && !empty($_POST['TotalPrice']) && !empty($_POST['QuoteId']) && empty($_POST['Discount'])){
+			
+			$rs = $pdo->prepare("INSERT INTO LineItems (ItemName, Quantity, UnitPrice, TotalPrice, QuoteId) VALUES (:ItemName, :Quantity, :UnitPrice, :TotalPrice, :QuoteId)");
+
+			$rs->bindParam(':ItemName', $ItemName);
+			$rs->bindParam(':Quantity', $Quantity);
+			$rs->bindParam(':UnitPrice', $UnitPrice);
+			$rs->bindParam(':TotalPrice',$TotalPrice);
+			$rs->bindParam(':QuoteId',$QuoteId);
+			$rs->execute();
+
+		}
+		else{
+			echo "<br>";
+			echo "Erro: Please fill in all required fields.";
+		}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if($login == "" || $login == "Invalid username or password") {
 	echo '<form action="" method="POST">
 			<br><br>
@@ -151,6 +189,50 @@ if($login == "correct"){
 	echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
 	echo '<input name="newCust" type="submit" value="New Customer">';
 	echo '</select><br/>';	
+	echo "</form>";
+}
+
+if($login == "correct"){
+	echo "<form method=POST action=>";
+	
+	$username = $_POST['username'];
+        $password = $_POST['password'];
+	echo '<input name="username" type="hidden" value=' . $username . '>';
+	echo '<input name="password" type="hidden" value=' . $password . '>';
+	echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
+	
+	echo '<label for="ItemName">Item Name:</label>';
+	echo '<input type="text" id="ItemName" name="ItemName">';
+	echo "<br>";
+	echo "<br>";
+
+	echo '<label for="Quantity">Quantity:</label>';
+	echo '<input type="text" id="Quantity" name="Quantity">';
+	echo "<br>";
+	echo "<br>";
+
+	echo '<label for="UnitPrice">Price $:</label>';
+	echo '<input type="text" id="UnitPrice" name="UnitPrice">';
+	echo "<br>";
+	echo "<br>";
+
+	echo '<label for="Discount">Discount %:</label>';
+	echo '<input type="text" id="Discount" name="Discount">';
+	echo "<br>";
+	echo "<br>";
+
+	echo '<label for="TotalPrice">Total Price:</label>';
+	echo '<input type="text" id="TotalPrice" name="TotalPrice">';
+	echo "<br>";
+	echo "<br>";
+
+	echo '<label for="QuoteId">Quote Id:</label>';
+	echo '<input type="text" id="QuoteId" name="QuoteId">';
+	echo "<br>";
+	echo "<br>";
+
+	echo '<button type="submit" name="submit">submit</button>';
+
 	echo "</form>";
 }
 ?>
