@@ -21,4 +21,4 @@ function sendPurchaseOrder($quoteID, $assocID, $custid, $priceTotal) {
 	$result = file_get_contents($url, false, $context);
 	echo($result);
 }
-<?php
+?>
