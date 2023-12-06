@@ -14,7 +14,7 @@
     }
 
      header-container{
-	text-align: center;
+	text-align: left;
      }
 
     table {
@@ -143,7 +143,6 @@ echo "<body>";
 
 		echo '<div class="container">';
 		
-		// Table 1
 		echo '<div class="table-container">';
 		echo '<h2>Current Sales Associates</h2>';
 		$query = $pdo->query("SELECT * FROM SalesAssociate;");
@@ -156,17 +155,17 @@ echo "<body>";
 		echo '<div class="table-container">';
 		echo '<h2>Current Quotes</h2>';
 		
-		// Fetch column names from the Quotes table
 		$query1 = $pdo->query("SHOW COLUMNS FROM Quotes;");
 		$columns = $query1->fetchAll(PDO::FETCH_COLUMN);
 		
-		// Display column names as labels
 		echo '<table>';
 		echo '<tr>';
+		echo '<div class="header-container">';
 		foreach ($columns as $column) {
 		    echo '<th class="table-label">' . $column . '</th>';
 		}
 		echo '</tr>';
+		echo </div>';
 		
 		// Fetch data from the Quotes table
 		$query2 = $pdo->query("SELECT * FROM Quotes;");
