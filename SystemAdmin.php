@@ -109,7 +109,7 @@ echo "<body>";
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
 
-	//echo '<h2>Current Sales Associates</h2>';
+	echo '<h1>Current Sales Associates</h1>';
 	$query = $pdo->query("SELECT * FROM SalesAssociate;");
         create_table($query);
 
