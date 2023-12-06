@@ -110,6 +110,7 @@ echo "<body>";
   		</form>';
 
 	$query = $pdo->query("SELECT * FROM SalesAssociate;");
+	update_table_with_buttons($query)
         create_table($query);
 	
 	echo "</body>";
