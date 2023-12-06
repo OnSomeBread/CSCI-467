@@ -268,7 +268,9 @@ if($login == "correct"){
         	$password = $_POST['password'];
 		echo '<input name="username" type="hidden" value=' . $username . '>';
 		echo '<input name="password" type="hidden" value=' . $password . '>';
+	if(isset($CurrentQID)){
 		echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
+	}
 	    	echo '<input type="submit" name="finishQuote" value="Finish Quote">';
 	echo '</form>';
 }
