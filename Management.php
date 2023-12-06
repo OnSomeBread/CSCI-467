@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $updateQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
              $updateQuery->execute();
          }
-	if (isset($_POST['editNote'])){
+}
+if (isset($_POST['editNote'])){
 		$QuoteID = $_POST['QuoteID'];
 		$Message = $_POST['message'];
 		$updateSecret = $pdo->prepare("UPDATE Quotes Set SecretNote = :message WHERE QuoteID = :QuoteID");
 		$updateSecret->bindParam(':message', $Message);
 		$updateSecret->bindParam(':quoteId', $QuoteID, PDO::PARAM_INT);
 		$updateSecret->execute();
-	}
 }
 
 
