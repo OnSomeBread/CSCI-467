@@ -20,7 +20,7 @@ echo "<body>";
          }
      }
 if (isset($_GET['editNote'])){
-	$QuoteID = $_POST['QuoteID']);
+	$QuoteID = $_POST['QuoteID'];
 	$Message = $_POST['message'];
 	//set secret note on current QuoteID
 	$updateSecret = $pdo->prepare("UPDATE Quotes Set Secretnote = :message WHERE QuoteID = :QuoteID");
