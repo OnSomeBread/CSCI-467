@@ -19,9 +19,19 @@ echo "<body>";
              $updateQuery->execute();
          }
      }
-     $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 1;");
-     
+if (isset($_GET['editNote'])){
+	$QuoteID = $_POST['QuoteID']);
+	$Message = $_POST['message'];
+	//set secret note on current QuoteID
+	$updateSecret = $pdo->prepare("UPDATE Quotes Set Secretnote = :message WHERE QuoteID = :QuoteID");
+	$updateSecret->bindParam(':message', $Message);
+	$updateSecret->bindParam(':quoteId', $QuoteID, PDO::PARAM_INT);
+	$updateSecret->execute();
 
+}
+
+
+     $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 1;");
      if($query->rowCount() == 0){
          echo "<div style='text-align: center; font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px;'>";
          echo "There is nothing here at the moment.";
@@ -31,6 +41,14 @@ echo "<body>";
           update_table_with_buttons($query);
      }
 
+          echo '<form method=POST action="">';
+			echo '<h3>Enter Quote ID to edit</h3>';
+			echo '<input type="text" name="QuoteID">';
+   
+   			echo '<label for="message">Message (up to 244 characters):</label>';
+       		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
+			echo '<button id="edit" type="submit" name="editNote">Edit</button>';
+  		echo '</form>';
 
 echo "</body>";
 ?>
