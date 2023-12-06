@@ -1,3 +1,31 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .table-container {
+        display: inline-block;
+        text-align: left;
+        margin: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #fffff;
+        margin-top: 10px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 16px;
+    }	
+</style>
 <?php
 include("styles.css");
 include("pass+.php");
@@ -109,17 +137,23 @@ echo "<body>";
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
 
-	echo '<h2>Current Sales Associates</h2>';
-	$query = $pdo->query("SELECT * FROM SalesAssociate;");
-        create_table($query);
+		echo '<div class="container">';
 
-	echo"<br></br>";
-
-	echo '<h2>Current Quotes</h2>';
-	$query1 = $pdo->query("SELECT * FROM Quotes;");
-	create_table($query1);
-	
-	echo "</body>";
+		echo '<div class="table-container">';
+		echo '<h2>Current Sales Associates</h2>';
+		$query = $pdo->query("SELECT * FROM SalesAssociate;");
+		create_table($query);
+		echo '</div>';
+		
+		echo "<br></br>";
+		
+		echo '<div class="table-container">';
+		echo '<h2>Current Quotes</h2>';
+		$query1 = $pdo->query("SELECT * FROM Quotes;");
+		create_table($query1);
+		echo '</div>';
+		
+		echo '</div>';
 
 echo "</body>";
 ?>
