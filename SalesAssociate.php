@@ -39,7 +39,7 @@ include("pass+.php");
 echo "<head>
      </head>";
 echo "<body>";
-$CurrentQID;
+$CurrentQID = "";
 if (isset($_POST['CurrentQID'])){
 	$CurrentQID = $_POST['CurrentQID'];
 }
