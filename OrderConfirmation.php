@@ -11,12 +11,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["quote_id"])) {
         $quoteId = $_POST["quote_id"];
 
-        // Update the "Status" to 3 for the selected QuoteID
-        $updateQuery = $pdo->prepare("UPDATE Quotes SET Status = 3 WHERE QuoteID = :quoteId");
-        $updateQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
-        $updateQuery->execute();
+        // send quote to external system
+        $userQuery = $pdo->prepare("SELECT UserID FROM CustomerData WHERE QuoteID = :quoteId");
+        $userQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+        $userQuery->execute();
+        $userResult = $userQuery->fetch(PDO::FETCH_ASSOC);
+        $userID = $userResult["UserID"];
 
-        sendPurchaseOrder(1,2,3,15.50);
+        $lineQuery = $pdo->prepare("SELECT TotalPrice From LineItems WHERE QuoteID = :quoteId");
+        $lineQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+        $lineQuery->execute();
+        $lineResult = $lineQuery->fetchAll(PDO::FETCH_COLUMN);
+        $quoteTotal = 0.00;
+        foreach($lineResult){
+                $quoteTotal = $quoteTotal + $lineResult["TotalPrice"];
+        }
+
+        sendPurchaseOrder($quoteId,2,$userID,$quoteTotal);
     }
 }
 
