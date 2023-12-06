@@ -4,7 +4,7 @@
     }
 
     .container {
-        text-align: center;
+        text-align: left;
     }
 
     .table-container {
