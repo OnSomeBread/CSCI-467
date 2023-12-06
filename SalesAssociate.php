@@ -202,7 +202,8 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo '<select id="customer" name="selected_customer">';
 	echo '<option value="">select one</option>';
 	foreach ($rows as $option){
-		echo "<option value=\"$option\">$option</option>";			  }
+		echo "<option value=\"$option\">$option</option>";			  
+	}
 	$username = $_POST['username'];
         $password = $_POST['password'];
 	echo '<input name="username" type="hidden" value=' . $username . '>';
@@ -211,9 +212,8 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo '<input name="newCust" type="submit" value="New Customer">';
 	echo '</select><br/>';	
 	echo "</form>";
-}
 
-if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
+	// NEXT FORM
 	echo "<form method=POST action=>";
 	
 	echo '<label for="ItemName">Item Name:</label>';
@@ -245,8 +245,8 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo '<button type="submit" name="lineItemSub">Insert New Item</button>';
 
 	echo "</form>";
-}
-if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
+
+	//NEXT FORM
 	echo '<form method=POST action="">';
         	echo '<label for="message">Message (up to 244 characters):</label>';
        		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
