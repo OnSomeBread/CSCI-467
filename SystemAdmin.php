@@ -109,13 +109,13 @@ echo "<body>";
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
 
-	echo '<h2>Current Sales Associates</h2>';
+	//echo '<h2>Current Sales Associates</h2>';
 	$query = $pdo->query("SELECT * FROM SalesAssociate;");
         create_table($query);
 
 	echo"<br></br>";
 
-	echo '<h2>Current Quotes</h2>;
+	//echo '<h2>Current Quotes</h2>;
 	$query1 = $pdo->query("SELECT * FROM Quotes;");
 	create_table($query1);
 	
