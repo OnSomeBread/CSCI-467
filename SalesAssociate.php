@@ -214,7 +214,7 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo "</form>";
 
 }
-if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
+if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID'])) && (isset($_POST['lineItemSub']) || isset($_POST['newCust']))){
 	echo "<form method=POST action=>";
 	
 	echo '<label for="ItemName">Item Name:</label>';
