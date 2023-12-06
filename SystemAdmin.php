@@ -160,11 +160,12 @@ echo "<body>";
 			$query1 = $pdo->query("SHOW COLUMNS FROM Quotes;");
 			$columns = $query1->fetchAll(PDO::FETCH_COLUMN);
 			
-			// Display column names as labels
 			echo '<table>';
 				echo '<tr>';
 					foreach ($columns as $column) {
-					    echo '<th class="table-label">' . $column . '</th>';
+						echo '<div class="header-container">';
+					    		echo '<th class="table-label">' . $column . '</th>';
+						echo '</div>';
 					}
 				echo '</tr>';
 	
@@ -174,6 +175,5 @@ echo "<body>";
 				echo '</div>';
 			echo '</table>';
 		echo '</div>';
-
 echo "</body>";
 ?>
