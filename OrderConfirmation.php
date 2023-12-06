@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateQuery = $pdo->prepare("UPDATE Quotes SET Status = 3 WHERE QuoteID = :quoteId");
         $updateQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
         $updateQuery->execute();
+
+        sendPurchaseOrder(1,2,3,15.50);
     }
 }
 
