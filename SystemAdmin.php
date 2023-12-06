@@ -156,11 +156,23 @@ echo "<body>";
 			echo '<div class="header-container">';
 				echo '<h2>Current Quotes</h2>';
 			echo '</div>';
+
+			$query1 = $pdo->query("SHOW COLUMNS FROM Quotes;");
+			$columns = $query1->fetchAll(PDO::FETCH_COLUMN);
+			
+			// Display column names as labels
+			echo '<table>';
+				echo '<tr>';
+					foreach ($columns as $column) {
+					    echo '<th class="table-label">' . $column . '</th>';
+					}
+				echo '</tr>';
 	
-			echo '<div class="table-container">';
-				$query1 = $pdo->query("SELECT * FROM Quotes;");
-				create_table($query1);
-			echo '</div>';
+				echo '<div class="table-container">';
+					$query1 = $pdo->query("SELECT * FROM Quotes;");
+					create_table($query1);
+				echo '</div>';
+			echo '</table>';
 		echo '</div>';
 
 echo "</body>";
