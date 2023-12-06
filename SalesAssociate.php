@@ -251,18 +251,6 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo '<form method=POST action="">';
         	echo '<label for="message">Message (up to 244 characters):</label>';
        		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
-	
-		$username = $_POST['username'];
-        	$password = $_POST['password'];
-		echo '<input name="username" type="hidden" value=' . $username . '>';
-		echo '<input name="password" type="hidden" value=' . $password . '>';
-		echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
-        	echo '<input type="submit" name="secretNote" value="Submit secret note">';
-    	echo '</form>';
-
-//TODO: make this button return the user to main.php after the quote has been advanced
-//action="main.php" seems to send the user but does not set status = 1
-	echo '<form method=POST action="">';
 		$username = $_POST['username'];
         	$password = $_POST['password'];
 		echo '<input name="username" type="hidden" value=' . $username . '>';
