@@ -18,6 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $updateQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
              $updateQuery->execute();
          }
+	if (isset($_POST["boat_id"])) {
+		$quoteId = $_POST["boat_id"];
+		
+		$deleteQuery = $pdo->prepare("DELETE FROM Quotes WHERE QuoteID = :quoteId");
+        	$deleteQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+             	$deleteQuery->execute();
+	}
 }
 if (isset($_POST['editNote'])){
 		$QuoteID = $_POST['QuoteID'];
