@@ -271,4 +271,22 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	    	echo '<input type="submit" name="finishQuote" value="Finish Quote">';
 	echo '</form>';
 }
+if($login == "correct"){
+	echo '<form method=POST action="">';
+		$username = $_POST['username'];
+        	$password = $_POST['password'];
+		echo '<input name="username" type="hidden" value=' . $username . '>';
+		echo '<input name="password" type="hidden" value=' . $password . '>';
+	    	echo '<input type="submit" name="editQuote" value="Edit Quote">';
+	echo '</form>';
+}
+if($login == "correct" && isset($_POST['editQuote'])){
+	echo '<form method=POST action="">';
+		$username = $_POST['username'];
+        	$password = $_POST['password'];
+		echo '<input name="username" type="hidden" value=' . $username . '>';
+		echo '<input name="password" type="hidden" value=' . $password . '>';
+	    	echo '<input type="submit" name="editQuote" value="Edit Quote">';
+	echo '</form>';
+}
 ?>
