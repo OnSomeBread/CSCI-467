@@ -115,7 +115,7 @@ echo "<body>";
 
 	echo"<br></br>";
 
-	echo '<h2>Current Quotes</h2>;
+	echo '<h2>Current Quotes</h2>';
 	$query1 = $pdo->query("SELECT * FROM Quotes;");
 	create_table($query1);
 	
