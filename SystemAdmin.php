@@ -141,61 +141,27 @@ echo "<body>";
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
 
+
 		echo '<div class="container">';
-		
-		echo '<div class="table-container">';
-		echo '<h2>Current Sales Associates</h2>';
-		$query = $pdo->query("SELECT * FROM SalesAssociate;");
-		create_table($query);
+			echo '<div class="table-container">';
+				echo '<h2>Current Sales Associates</h2>';
+				$query = $pdo->query("SELECT * FROM SalesAssociate;");
+				create_table($query);
+			echo '</div>';
 		echo '</div>';
 		
 		echo "<br></br>";
-		
-		// Table 2 - Current Quotes
-		echo '<div class="table-container">';
-		echo '<h2>Current Quotes</h2>';
-		
-		$query1 = $pdo->query("SHOW COLUMNS FROM Quotes;");
-		$columns = $query1->fetchAll(PDO::FETCH_COLUMN);
-		
-		echo '<table>';
-		echo '<tr>';
-		echo '<div class="header-container">';
-		foreach ($columns as $column) {
-		    echo '<th class="table-label">' . $column . '</th>';
-		}
-		echo '</tr>';
-		echo </div>';
-		
-		// Fetch data from the Quotes table
-		$query2 = $pdo->query("SELECT * FROM Quotes;");
-		create_table($query2);
-		
-		echo '</table>';
+
+		echo '<div class="container">';
+			echo '<div class="header-container">';
+				echo '<h2>Current Quotes</h2>';
+			echo '</div>';
+	
+			echo '<div class="table-container">';
+				$query1 = $pdo->query("SELECT * FROM Quotes;");
+				create_table($query1);
+			echo '</div>';
 		echo '</div>';
-		
-		echo '</div>';
-
-		//echo '<div class="container">';
-
-		//echo '<div class="table-container">';
-		//echo '<h2>Current Sales Associates</h2>';
-		//$query = $pdo->query("SELECT * FROM SalesAssociate;");
-		//create_table($query);
-		//echo '</div>';
-		
-		//echo "<br></br>";
-
-		//echo '<div class="header-container">';
-		//echo '<h2>Current Quotes</h2>';
-		//echo '</div>';
-
-		//echo '<div class="table-container">';
-		//$query1 = $pdo->query("SELECT * FROM Quotes;");
-		//create_table($query1);
-		//echo '</div>';
-		
-		//echo '</div>';
 
 echo "</body>";
 ?>
