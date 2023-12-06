@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lineQuery = $pdo->prepare("SELECT TotalPrice From LineItems WHERE QuoteID = :quoteId");
         $lineQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
         $lineQuery->execute();
-        $lineResult = $lineQuery->fetchAll(PDO::FETCH_COLUMN);
+        $lineResults = $lineQuery->fetchAll(PDO::FETCH_COLUMN);
         $quoteTotal = 0.00;
-        foreach($lineResult){
-                $quoteTotal = $quoteTotal + $lineResult["TotalPrice"];
+        foreach ($lineResults as $lineResult){
+                $quoteTotal += $lineResult["TotalPrice"];
         }
 
         sendPurchaseOrder($quoteId,2,$userID,$quoteTotal);
