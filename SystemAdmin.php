@@ -142,7 +142,8 @@ echo "<body>";
   		</form>';
 
 		echo '<div class="container">';
-
+		
+		// Table 1
 		echo '<div class="table-container">';
 		echo '<h2>Current Sales Associates</h2>';
 		$query = $pdo->query("SELECT * FROM SalesAssociate;");
@@ -150,17 +151,52 @@ echo "<body>";
 		echo '</div>';
 		
 		echo "<br></br>";
-
-		echo '<div class="header-container">';
-		echo '<h2>Current Quotes</h2>';
-		echo '</div>';
-
+		
+		// Table 2 - Current Quotes
 		echo '<div class="table-container">';
-		$query1 = $pdo->query("SELECT * FROM Quotes;");
-		create_table($query1);
+		echo '<h2>Current Quotes</h2>';
+		
+		// Fetch column names from the Quotes table
+		$query1 = $pdo->query("SHOW COLUMNS FROM Quotes;");
+		$columns = $query1->fetchAll(PDO::FETCH_COLUMN);
+		
+		// Display column names as labels
+		echo '<table>';
+		echo '<tr>';
+		foreach ($columns as $column) {
+		    echo '<th class="table-label">' . $column . '</th>';
+		}
+		echo '</tr>';
+		
+		// Fetch data from the Quotes table
+		$query2 = $pdo->query("SELECT * FROM Quotes;");
+		create_table($query2);
+		
+		echo '</table>';
 		echo '</div>';
 		
 		echo '</div>';
+
+		//echo '<div class="container">';
+
+		//echo '<div class="table-container">';
+		//echo '<h2>Current Sales Associates</h2>';
+		//$query = $pdo->query("SELECT * FROM SalesAssociate;");
+		//create_table($query);
+		//echo '</div>';
+		
+		//echo "<br></br>";
+
+		//echo '<div class="header-container">';
+		//echo '<h2>Current Quotes</h2>';
+		//echo '</div>';
+
+		//echo '<div class="table-container">';
+		//$query1 = $pdo->query("SELECT * FROM Quotes;");
+		//create_table($query1);
+		//echo '</div>';
+		
+		//echo '</div>';
 
 echo "</body>";
 ?>
