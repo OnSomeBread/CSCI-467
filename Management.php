@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$quoteId = $_POST["boat_id"];
 
 		$deleteDepend = $pdo->prepare("DELETE FROM LineItems WHERE QuoteID = :quoteId");
+		$deleteDepend->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+		$deleteDepend->execute();
 		$deleteDepend = $pdo->prepare("DELETE FROM CustomerData WHERE QuoteID = :quoteId");
 		$deleteDepend->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
 		$deleteDepend->execute();
