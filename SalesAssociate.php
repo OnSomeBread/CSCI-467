@@ -213,7 +213,8 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo '</select><br/>';	
 	echo "</form>";
 
-	// NEXT FORM
+}
+if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo "<form method=POST action=>";
 	
 	echo '<label for="ItemName">Item Name:</label>';
@@ -258,11 +259,9 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 		echo '<input name="CurrentQID" type="hidden" value=' . $CurrentQID . '>';
         	echo '<input type="submit" name="secretNote" value="Submit secret note">';
     	echo '</form>';
-}
 
 //TODO: make this button return the user to main.php after the quote has been advanced
 //action="main.php" seems to send the user but does not set status = 1
-if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo '<form method=POST action="">';
 		$username = $_POST['username'];
         	$password = $_POST['password'];
