@@ -1,6 +1,7 @@
 <?php
 include("styles.css");
 include("pass+.php");
+include("order.php");
 
 echo "<head></head>";
 echo "<body>";
