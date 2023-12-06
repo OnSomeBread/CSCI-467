@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lineResults = $lineQuery->fetchAll(PDO::FETCH_COLUMN);
         $quoteTotal = 0.00;
         foreach ($lineResults as $lineResult){
-                $quoteTotal += $lineResult["TotalPrice"];
+                $quoteTotal += $lineResult['TotalPrice'];
         }
 
         sendPurchaseOrder($quoteId,2,$userID,$quoteTotal);
