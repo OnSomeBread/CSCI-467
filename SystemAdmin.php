@@ -9,9 +9,13 @@
 
     .table-container {
         display: inline-block;
-        text-align: left;
+        text-align: center;
         margin: 10px;
     }
+
+     header-container{
+	text-align: center;
+     }
 
     table {
         border-collapse: collapse;
@@ -146,9 +150,12 @@ echo "<body>";
 		echo '</div>';
 		
 		echo "<br></br>";
-		
-		echo '<div class="table-container">';
+
+		echo '<div class="header-container">';
 		echo '<h2>Current Quotes</h2>';
+		echo '</div>';
+
+		echo '<div class="table-container">';
 		$query1 = $pdo->query("SELECT * FROM Quotes;");
 		create_table($query1);
 		echo '</div>';
