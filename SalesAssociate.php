@@ -196,7 +196,7 @@ if($login == "correct"){
 	echo '</form>';
 }
 
-if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['CurrentQID']))){
+if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo "<form method=POST action=>";
 	echo '<label for="customer">Select Customer:</label>'; 
 	echo '<select id="customer" name="selected_customer">';
@@ -213,7 +213,7 @@ if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['Current
 	echo "</form>";
 }
 
-if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['CurrentQID']))){
+if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo "<form method=POST action=>";
 	
 	echo '<label for="ItemName">Item Name:</label>';
@@ -246,7 +246,7 @@ if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['Current
 
 	echo "</form>";
 }
-if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['CurrentQID']))){
+if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo '<form method=POST action="">';
         	echo '<label for="message">Message (up to 244 characters):</label>';
        		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
@@ -262,7 +262,7 @@ if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['Current
 
 //TODO: make this button return the user to main.php after the quote has been advanced
 //action="main.php" seems to send the user but does not set status = 1
-if($login == "correct" && (isset($_POST['finishQuote']) || isset($_POST['CurrentQID']))){
+if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo '<form method=POST action="">';
 		$username = $_POST['username'];
         	$password = $_POST['password'];
