@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lineQuery = $pdo->prepare("SELECT TotalPrice From LineItems WHERE QuoteID = :quoteId");
         $lineQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
         $lineQuery->execute();
-        $lineResults = $lineQuery->fetchAll(PDO::FETCH_COLUMN);
+        $lineResults = $lineQuery->fetchAll(PDO::FETCH_ASSOC);
         $quoteTotal = 0.00;
         foreach ($lineResults as $lineResult){
                 $quoteTotal += $lineResult['TotalPrice'];
