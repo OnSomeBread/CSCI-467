@@ -230,7 +230,7 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
 	echo "<br>";
 	echo "<br>";
 
-	echo '<label for="UnitPrice">Price $:</label>';
+	echo '<label for="UnitPrice">Unit Price $:</label>';
 	echo '<input type="text" id="UnitPrice" name="UnitPrice">';
 	echo "<br>";
 	echo "<br>";
