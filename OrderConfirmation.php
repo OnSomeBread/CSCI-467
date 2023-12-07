@@ -28,7 +28,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         sendPurchaseOrder($quoteId,2,$userID,$quoteTotal);
+        echo "Quote Sent!";
     }
+    if (isset($_POST["boat_id"])) {
+		$quoteId = $_POST["boat_id"];
+
+		$deleteDepend = $pdo->prepare("DELETE FROM LineItems WHERE QuoteID = :quoteId");
+		$deleteDepend->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+		$deleteDepend->execute();
+		$deleteDepend = $pdo->prepare("DELETE FROM CustomerData WHERE QuoteID = :quoteId");
+		$deleteDepend->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+		$deleteDepend->execute();
+		
+		$deleteQuery = $pdo->prepare("DELETE FROM Quotes WHERE QuoteID = :quoteId");
+        	$deleteQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+             	$deleteQuery->execute();
+        echo "Quote has been deleted!";
+	}
 }
 
 $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
