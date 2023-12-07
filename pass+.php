@@ -70,6 +70,7 @@ function update_table_with_buttons($query)
 		echo "<td><button type='submit' name='quote_id' value='" . $row['QuoteID'] . "'>Update Status</button></td>";
 		echo "<td><button type='submit' name='boat_id' value='" . $row['QuoteID'] . "'>Reject Quote</button></td>";
 		echo "<td><button type='submit' name='loat_id' value='" . $row['QuoteID'] . "'>Show Line Items</button></td>";
+		echo "<td><button type='submit' name='foat_id' value='" . $row['QuoteID'] . "'>Show Customer Data</button></td>";
 	        echo "</tr>";
 	}
     echo '</table>';
