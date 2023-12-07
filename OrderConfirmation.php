@@ -60,7 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         	$deleteQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
              	$deleteQuery->execute();
         echo "Quote has been deleted!";
-	}
+    }
+    if(isset($_POST["loat_id"])) {
+		$quoteId = $_POST["loat_id"];
+		$result = $pdo->query("SELECT * FROM LineItems WHERE QuoteID = :quoteId;");
+  		create_table($result);
+    }
 }
 
 //list all status = 2 (post management) quotes
