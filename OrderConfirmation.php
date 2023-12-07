@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         sendPurchaseOrder($quoteId,2,$userID,$quoteTotal);
-        echo "Quote Sent!";
     }
     if (isset($_POST["boat_id"])) {
 		$quoteId = $_POST["boat_id"];
