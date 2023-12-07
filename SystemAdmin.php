@@ -60,7 +60,7 @@ echo "<body>";
     		$g->bindParam(':Address', $Address);
     		$g->bindParam(':Username', $Username);
     		$g->bindParam(':Password', $Password);
-		$g->bindParam(':Commission', $Commission)
+		$g->bindParam(':Commission', $Commission);
 
 		try {
     			$g->execute();
