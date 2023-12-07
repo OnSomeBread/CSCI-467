@@ -52,7 +52,7 @@ echo "<body>";
     		$Password = $_GET['Password'];
 
 		if(!empty($_GET['Username'])) {
-			$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission, QuoteID) VALUES (:Name, :Email, :Address, :Username, :Password, 40.00, 1)");
+			$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission) VALUES (:Name, :Email, :Address, :Username, :Password, 40.00)");
 		
 		$g->bindParam(':Name', $Name);
     		$g->bindParam(':Email', $Email);
