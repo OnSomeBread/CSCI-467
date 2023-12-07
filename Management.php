@@ -41,6 +41,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$result->execute();
   		create_table($result);
 	}
+	if(isset($_POST["foat_id"])) {
+		$quoteId = $_POST["foat_id"];
+		$result = $pdo->prepare("SELECT * FROM CustomerData WHERE QuoteID = :quoteId;");
+		$result->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+		$result->execute();
+  		create_table($result);
+	}
 }
 if (isset($_POST['editNote'])){
 		$QuoteID = $_POST['QuoteID'];
