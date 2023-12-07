@@ -63,7 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(isset($_POST["loat_id"])) {
 		$quoteId = $_POST["loat_id"];
-		$result = $pdo->query("SELECT * FROM LineItems WHERE QuoteID = :quoteId;");
+		$result = $pdo->prepare("SELECT * FROM LineItems WHERE QuoteID = :quoteId;");
+	    	$result->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+		$result->execute();
   		create_table($result);
     }
 }
