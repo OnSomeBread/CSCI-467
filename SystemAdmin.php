@@ -50,15 +50,17 @@ echo "<body>";
     		$Address = $_GET['Address'];
     		$Username = $_GET['Username'];
     		$Password = $_GET['Password'];
+		$Commission = $_GET['commission'];
 
 		if(!empty($_GET['Username'])) {
-			$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission) VALUES (:Name, :Email, :Address, :Username, :Password, 40.00)");
+			$g = $pdo->prepare("INSERT INTO SalesAssociate (Name, Email, Address, Username, Password, commission) VALUES (:Name, :Email, :Address, :Username, :Password, :Commission)");
 		
 		$g->bindParam(':Name', $Name);
     		$g->bindParam(':Email', $Email);
     		$g->bindParam(':Address', $Address);
     		$g->bindParam(':Username', $Username);
     		$g->bindParam(':Password', $Password);
+		$g->bindParam(':Commission', $Commission)
 
 		try {
     			$g->execute();
@@ -111,6 +113,9 @@ echo "<body>";
 
 			<h3>Please Enter a Password</h3>
 			<input type="text" name="Password">
+
+			<h3>Enter Commission Rate</h3>
+   			<input type="text" name="commission">
 
 			<br>
 			<button id="create" type="submit" name="create" value="create">Create</button>
