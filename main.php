@@ -52,7 +52,7 @@
 
 	echo "<br>";
 
-	echo "<h2>Order Conformation page:</h2>";
+	echo "<h2>Order Confirmation page:</h2>";
 
 	echo '<a href="OrderConfirmation.php"><button>Order Conformation</button></a>';
 
