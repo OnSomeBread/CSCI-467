@@ -7,8 +7,8 @@
 			margin: 0;
 			padding: 0;
 			display: flex;
-            		flex-direction: column;
-            		align-items: left;
+            		flex-direction: row;
+            		align-items: center;
 			min-height: 100vh;
 		}
 
@@ -52,6 +52,12 @@
 
 	echo "<br>";
 
+	echo "<h2>Management:</h2>";
+
+	echo '<a href="Management.php"><button>Management</button></a>';
+
+	echo "<br>";
+
 	echo "<h2>Order Confirmation page:</h2>";
 
 	echo '<a href="OrderConfirmation.php"><button>Order Conformation</button></a>';
@@ -64,11 +70,6 @@
 
 	echo "<br>";
 
-	echo "<h2>Management:</h2>";
-
-	echo '<a href="Management.php"><button>Management</button></a>';
-
-	echo "<br>";
 ?>
 </body>
 </html>
