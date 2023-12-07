@@ -64,7 +64,7 @@ echo "<body>";
     			$g->execute();
 		}
 		catch (Exception $e) {
-			echo 'failure';
+			echo $e->getMessage();
 		}
 		}
 	}
