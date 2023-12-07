@@ -69,7 +69,7 @@ if (isset($_POST['newQuote'])) {
     // Execute the SQL query
     	$g = $pdo->exec("INSERT INTO Quotes (Date_, SecretNote, Status) VALUES ('" . date("m/d/Y") . "', '', '0')");
 	$CurrentQID = $pdo->lastInsertID();
-	echo "Your QuoteID is " . $CurrentQID;
+	echo "Your new QuoteID is " . $CurrentQID;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 try {
@@ -110,6 +110,8 @@ if (isset($_POST['newCust'])){ //check if form is submitted
     
     // Executing the prepared statement
     $n->execute();
+
+    echo "Customer Successfully Added!";
 }
 } catch(PDOexception $e){
 	echo "Connection to database failed: ".$e->getMessage();
@@ -135,6 +137,7 @@ if (isset($_POST['lineItemSub'])){
 			$rs->bindParam(':TotalPrice',$TotalPrice);
 			$rs->bindParam(':QuoteId',$QuoteID);
 			$rs->execute();
+			echo "Item added to Quote!";
 		}
 		else if (!empty($_POST['ItemName']) && !empty($_POST['Quantity']) && !empty($_POST['UnitPrice']) && empty($_POST['Discount'])){
 
@@ -147,7 +150,7 @@ if (isset($_POST['lineItemSub'])){
 			$rs->bindParam(':TotalPrice',$TotalPrice);
 			$rs->bindParam(':QuoteId',$QuoteID);
 			$rs->execute();
-
+			echo "Item added to Quote!";
 		}
 		else{
 			echo "<br>";
