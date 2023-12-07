@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["quote_id"])) {
         $quoteId = $_POST["quote_id"];
 
-        // send quote to external system
+        //get database variables for external deployment
         $userQuery = $pdo->prepare("SELECT UserID FROM CustomerData WHERE QuoteID = :quoteId");
         $userQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
         $userQuery->execute();
@@ -22,13 +22,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lineQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
         $lineQuery->execute();
         $lineResults = $lineQuery->fetchAll(PDO::FETCH_ASSOC);
+
+	//calculate total price of quote
         $quoteTotal = 0.00;
         foreach ($lineResults as $lineResult){
                 $quoteTotal += $lineResult['TotalPrice'];
         }
 
+	//send order to external database
         sendPurchaseOrder($quoteId,2,$userID,$quoteTotal);
+
+	//delete sent order from database
+	$deleteDepend = $pdo->prepare("DELETE FROM LineItems WHERE QuoteID = :quoteId");
+	$deleteDepend->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+	$deleteDepend->execute();
+	$deleteDepend = $pdo->prepare("DELETE FROM CustomerData WHERE QuoteID = :quoteId");
+	$deleteDepend->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+	$deleteDepend->execute();
+	
+	$deleteQuery = $pdo->prepare("DELETE FROM Quotes WHERE QuoteID = :quoteId");
+        $deleteQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
+        $deleteQuery->execute();
     }
+
+    //delete button is pressed, delete quote
     if (isset($_POST["boat_id"])) {
 		$quoteId = $_POST["boat_id"];
 
@@ -46,9 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 
+//list all status = 2 (post management) quotes
 $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
-
-
 if($query->rowCount() == 0){
     echo "<div style='text-align: center; font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px;'>";
     echo "There is nothing ready for confirmation at the moment.";
