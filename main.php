@@ -7,7 +7,7 @@
 			margin: 0;
 			padding: 0;
 			display: flex;
-            		flex-direction: row;
+            		flex-direction: column;
             		align-items: center;
 			min-height: 100vh;
 		}
