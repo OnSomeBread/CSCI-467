@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $updateQuery = $pdo->prepare("UPDATE Quotes SET Status = 2 WHERE QuoteID = :quoteId");
              $updateQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
              $updateQuery->execute();
+	     echo "Quote advanced to Order Confirmation department!";
          }
 	if (isset($_POST["boat_id"])) {
 		$quoteId = $_POST["boat_id"];
@@ -31,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$deleteQuery = $pdo->prepare("DELETE FROM Quotes WHERE QuoteID = :quoteId");
         	$deleteQuery->bindParam(":quoteId", $quoteId, PDO::PARAM_INT);
              	$deleteQuery->execute();
+		echo "Quote has been deleted!";
 	}
 }
 if (isset($_POST['editNote'])){
@@ -40,6 +42,7 @@ if (isset($_POST['editNote'])){
 		$updateSecret->bindParam(':message', $Message);
 		$updateSecret->bindParam(':QuoteID', $QuoteID, PDO::PARAM_INT);
 		$updateSecret->execute();
+		echo "Secret Note changed!";
 }
 
 
