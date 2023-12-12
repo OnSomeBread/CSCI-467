@@ -1,4 +1,5 @@
 <?php
+//send completed quote to external processing system
 function sendPurchaseOrder($quoteID, $assocID, $custid, $priceTotal) {
     $url = 'http://blitz.cs.niu.edu/PurchaseOrder/';
     
