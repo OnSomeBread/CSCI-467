@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              	$deleteQuery->execute();
         echo "Quote has been deleted!";
     }
+    //Display table of LineItems
     if(isset($_POST["loat_id"])) {
 		$quoteId = $_POST["loat_id"];
 		$result = $pdo->prepare("SELECT * FROM LineItems WHERE QuoteID = :quoteId;");
@@ -68,6 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$result->execute();
   		create_table($result);
     }
+    //Display table of CustomerData
     if(isset($_POST["foat_id"])) {
 		$quoteId = $_POST["foat_id"];
 		$result = $pdo->prepare("SELECT * FROM CustomerData WHERE QuoteID = :quoteId;");
@@ -77,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-//list all status = 2 (post management) quotes
+//list all status = 2 (post management) quotes in table
 $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 2;");
 if($query->rowCount() == 0){
     echo "<div style='text-align: center; font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px;'>";
