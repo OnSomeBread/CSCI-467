@@ -71,6 +71,7 @@ echo "<body>";
 		}
 	}
 
+	//delete employee by employee ID
 	if (isset($_GET['delete']) && isset($_GET['UserID'])){
 		$DelUser = $_GET['UserID'];
 		$b = $pdo->prepare("DELETE FROM SalesAssociate WHERE AssocID = :DelUser;");
@@ -78,6 +79,7 @@ echo "<body>";
 		$b->execute();
 	}
 
+	//menu function to edit employee information
 	if (isset($_GET['edit'])){
 		// change update line
 		$b = $pdo->prepare("UPDATE SalesAssociate SET Name=:n_name, Email=:n_email, Address=:n_address, 
@@ -89,15 +91,10 @@ echo "<body>";
 		$b->bindParam(':n_password', $_GET['newpassword']);
 		$b->bindParam(':n_commission', $_GET['newcommission']);
 		$b->bindParam(':AssocID', $_GET['associd']);
-		// try block to stop from crashing
-		// try {
-		 	$b->execute();
-		// }
-		// catch (Exception $e) {
-		// 	echo "Invalid edit inputs";
-		// }
+		$b->execute();
 	}
-		
+//Display
+///////////////////////////////////////////////////////////////////////////////////
 	echo '<form action="" method="GET">
 			<h3>Please Enter a Name</h3>
 			<input type="text" name="Name">
@@ -120,13 +117,13 @@ echo "<body>";
 			<br>
 			<button id="create" type="submit" name="create" value="create">Create</button>
 		</form>';
-
+///////////////////////////////////////////////////////////////////////////////////
 		echo '<form action="" method="GET">
 			<h3>Please Enter UserID to Delete</h3>
 			<input type="text" name="UserID">
 			<button id="delete" type="submit" name="delete">Delete</button>
   		</form>';
-
+///////////////////////////////////////////////////////////////////////////////////
 		echo '<form action="" method="GET">
 			<h3>Please Enter Associate ID Information</h3>
 			<input type="text" name="associd">
@@ -145,8 +142,7 @@ echo "<body>";
 			<input type="text" name="newcommission">
 			<button id="edit" type="submit" name="edit">Edit</button>
   		</form>';
-
-
+///////////////////////////////////////////////////////////////////////////////////
 		echo '<div class="container">';
 			echo '<div class="table-container">';
 				echo '<h2>Current Sales Associates</h2>';
@@ -154,9 +150,9 @@ echo "<body>";
 				create_table($query);
 			echo '</div>';
 		echo '</div>';
-		
+///////////////////////////////////////////////////////////////////////////////////
 		echo "<br></br>";
-
+///////////////////////////////////////////////////////////////////////////////////
 		echo '<div class="container">';
 			echo '<div class="header-container">';
 				echo '<h2>Current Quotes</h2>';
@@ -180,5 +176,6 @@ echo "<body>";
 				echo '</div>';
 			echo '</table>';
 		echo '</div>';
+///////////////////////////////////////////////////////////////////////////////////
 echo "</body>";
 ?>
