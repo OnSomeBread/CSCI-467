@@ -10,6 +10,7 @@ echo "<head>
 echo "<body>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	//Forward Quote
 	if (isset($_POST["quote_id"])) {
              $quoteId = $_POST["quote_id"];
      
@@ -19,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $updateQuery->execute();
 	     echo "Quote advanced to Order Confirmation department!";
          }
+	//Delete Quote
 	if (isset($_POST["boat_id"])) {
 		$quoteId = $_POST["boat_id"];
 
@@ -34,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              	$deleteQuery->execute();
 		echo "Quote has been deleted!";
 	}
+	//Show LineItems table
 	if(isset($_POST["loat_id"])) {
 		$quoteId = $_POST["loat_id"];
 		$result = $pdo->prepare("SELECT * FROM LineItems WHERE QuoteID = :quoteId;");
@@ -41,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$result->execute();
   		create_table($result);
 	}
+	//Show CustomerData table
 	if(isset($_POST["foat_id"])) {
 		$quoteId = $_POST["foat_id"];
 		$result = $pdo->prepare("SELECT * FROM CustomerData WHERE QuoteID = :quoteId;");
@@ -49,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   		create_table($result);
 	}
 }
+//Edit Secret note
 if (isset($_POST['editNote'])){
 		$QuoteID = $_POST['QuoteID'];
 		$Message = $_POST['message'];
@@ -59,7 +64,7 @@ if (isset($_POST['editNote'])){
 		echo "Secret Note changed!";
 }
 
-
+//Display table of all Quotes
      $query = $pdo->query("SELECT * FROM Quotes WHERE Status = 1;");
      if($query->rowCount() == 0){
          echo "<div style='text-align: center; font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px;'>";
@@ -70,6 +75,8 @@ if (isset($_POST['editNote'])){
           update_table_with_buttons($query);
      }
 
+//Display
+///////////////////////////////////////////////////////////////////////////////////
 	echo '<form method=POST action="">';
 		echo '<h3>Enter Quote ID to edit</h3>';
 		echo '<input type="text" name="QuoteID">';
@@ -78,6 +85,6 @@ if (isset($_POST['editNote'])){
        		echo '<textarea id="message" name="message" rows="4" cols="50" maxlength="244" required></textarea>';
 		echo '<button id="edit" type="submit" name="editNote">Edit Quote</button>';
   	echo '</form>';
-
+///////////////////////////////////////////////////////////////////////////////////
 echo "</body>";
 ?>
