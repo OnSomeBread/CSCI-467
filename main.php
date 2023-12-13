@@ -44,6 +44,7 @@
 
 
 <?php
+//Entire page is a basic button prompt page that allows a user to naviate with ease.
 	echo "<br>";			
 
 	echo "<h2>Sales Associate:</h2>";
