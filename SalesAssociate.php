@@ -33,9 +33,6 @@ th, td {
 include("styles.css");
 include("pass+.php");
 
-//example redirect function
-//header("Location: http://www.example.com/example-url", true, 301);
-
 echo "<head>
      </head>";
 echo "<body>";
@@ -43,6 +40,7 @@ $CurrentQID = "";
 if (isset($_POST['CurrentQID'])){
 	$CurrentQID = $_POST['CurrentQID'];
 }
+//Get username from associate and make sure to error check it
 $login = "";
 if (!isset($_SESSION['username'])) {
 	// If not logged in, check if the login form is submitted
@@ -177,6 +175,7 @@ if (isset($_POST['finishQuote'])) {
         $updateQuery->execute();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//If invalid username, re-display prompt
 if($login == "" || $login == "Invalid username or password") {
 	echo '<form action="" method="POST">
 			<br><br>
@@ -189,6 +188,7 @@ if($login == "" || $login == "Invalid username or password") {
 		</form>';
 }
 
+//Update page with new prompt if login is correct
 if($login == "correct"){
 	echo '<form method=POST action="">';
 		$username = $_POST['username'];
@@ -198,6 +198,8 @@ if($login == "correct"){
 	    	echo '<input type="submit" name="newQuote" value="Create New Quote">';
 	echo '</form>';
 }
+
+//Allow for the creation of a new quote
 
 if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID']))){
 	echo "<form method=POST action=>";
@@ -263,8 +265,7 @@ if($login == "correct" && (isset($_POST['newQuote']) || isset($_POST['CurrentQID
         	echo '<input type="submit" name="secretNote" value="Submit secret note">';
     	echo '</form>';
 
-//TODO: make this button return the user to main.php after the quote has been advanced
-//action="main.php" seems to send the user but does not set status = 1
+//Finish the form
 	echo '<form method=POST action="">';
 		$username = $_POST['username'];
         	$password = $_POST['password'];
